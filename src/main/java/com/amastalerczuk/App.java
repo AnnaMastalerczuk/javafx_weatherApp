@@ -18,8 +18,8 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 //        scene = new Scene(loadFXML("MainView"), 640, 480);
-        Parent parent = FXMLLoader.load(getClass().getResource("MainView.fxml"));
-        Scene scene = new Scene(parent, 650, 350);
+        Parent parent = FXMLLoader.load(getClass().getResource("NextWeatherView.fxml"));
+        Scene scene = new Scene(parent);
 
         stage.setScene(scene);
         stage.show();

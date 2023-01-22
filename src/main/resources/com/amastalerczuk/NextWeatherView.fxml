@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+
+<AnchorPane prefHeight="356.0" prefWidth="724.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.amastalerczuk.controller.NextWeatherViewController">
+   <children>
+      <Label layoutX="327.0" layoutY="28.0" text="Weather App" />
+      <AnchorPane layoutY="66.0" prefHeight="253.0" prefWidth="362.0">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="115.0" text="Lokalizacja obecna:" />
+            <Label fx:id="currentLocation" layoutX="120.0" layoutY="14.0" text="Gdańsk" />
+            <GridPane layoutX="14.0" layoutY="43.0" prefHeight="182.0" prefWidth="344.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.20001220703125" minWidth="10.0" prefWidth="85.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.59998779296876" minWidth="10.0" prefWidth="85.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="98.79997558593752" minWidth="10.0" prefWidth="91.80003662109377" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="92.4000244140625" minWidth="10.0" prefWidth="82.19996337890626" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label fx:id="currentLocationData1" text="Label" />
+                  <ImageView fx:id="currentLocationImg1" fitHeight="30.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
+                  <Label fx:id="currenLocationDescription1" text="Label" GridPane.rowIndex="2" />
+                  <Label fx:id="currentLocationTemp1" text="Label" GridPane.rowIndex="3" />
+                  <Label fx:id="currentLocationPressure1" text="Label" GridPane.rowIndex="4" />
+                  <Label fx:id="currentLocationData2" layoutX="10.0" layoutY="20.0" text="Label" GridPane.columnIndex="1" />
+                  <ImageView fx:id="currentLocationImg2" fitHeight="30.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="currentLocationData3" text="Label" GridPane.columnIndex="2" />
+                  <Label fx:id="currentLocationData4" text="Label" GridPane.columnIndex="3" />
+                  <Label fx:id="currenLocationDescription2" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label fx:id="currenLocationDescription3" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Label fx:id="currenLocationDescription4" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <Label fx:id="currentLocationTemp2" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label fx:id="currentLocationPressure2" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label fx:id="currentLocationTemp3" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <Label fx:id="currentLocationPressure3" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <Label fx:id="currentLocationTemp4" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <Label fx:id="currentLocationPressure4" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <ImageView fx:id="currentLocationImg3" fitHeight="34.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <ImageView fx:id="currentLocationImg4" fitHeight="33.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="362.0" layoutY="66.0" prefHeight="253.0" prefWidth="362.0">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="115.0" text="Lokalizacja wybrana:" />
+            <Label fx:id="selectedLocation" layoutX="129.0" layoutY="14.0" text="Gdańsk" />
+            <GridPane layoutX="14.0" layoutY="43.0" prefHeight="182.0" prefWidth="344.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.20001220703125" minWidth="10.0" prefWidth="85.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.59998779296876" minWidth="10.0" prefWidth="85.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="98.79997558593752" minWidth="10.0" prefWidth="91.80003662109377" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="92.4000244140625" minWidth="10.0" prefWidth="82.19996337890626" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="selectedLocationData1" text="Label" />
+                  <ImageView fx:id="selectedLocationImg1" fitHeight="30.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
+                  <Label fx:id="selectedLocationDescription1" text="Label" GridPane.rowIndex="2" />
+                  <Label fx:id="selectedLocationTemp1" text="Label" GridPane.rowIndex="3" />
+                  <Label fx:id="selectedLocationPressure1" text="Label" GridPane.rowIndex="4" />
+                  <Label fx:id="selectedLocationData2" layoutX="10.0" layoutY="20.0" text="Label" GridPane.columnIndex="1" />
+                  <ImageView fx:id="selectedLocationImg2" fitHeight="30.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="selectedLocationData3" text="Label" GridPane.columnIndex="2" />
+                  <Label fx:id="selectedLocationData4" text="Label" GridPane.columnIndex="3" />
+                  <Label fx:id="selectedLocationDescription2" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label fx:id="selectedLocationDescription3" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Label fx:id="selectedLocationDescription4" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <Label fx:id="selectedLocationTemp2" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label fx:id="selectedLocationPressure2" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label fx:id="selectedLocationTemp3" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <Label fx:id="selectedLocationPressure3" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <Label fx:id="selectedLocationTemp4" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <Label fx:id="selectedLocationPressure4" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <ImageView fx:id="selectedLocationImg3" fitHeight="34.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <ImageView fx:id="selectedLocationImg4" fitHeight="33.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+      <Button layoutX="337.0" layoutY="307.0" mnemonicParsing="false" onAction="#returnToMainView" text="Powrót" />
+   </children>
+</AnchorPane>
