@@ -5,8 +5,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
-public class MainViewController {
+public class MainViewController extends BaseController{
     @FXML
     private Label currentData;
 
@@ -32,7 +33,10 @@ public class MainViewController {
     private Label currentLocationWind;
 
     @FXML
-    private ChoiceBox<?> listOfLocations;
+    private ChoiceBox<?> listOfCurrentLocations;
+
+    @FXML
+    private ChoiceBox<?> listOfSelectedLocations;
 
     @FXML
     private Label selectedLocation;
@@ -55,14 +59,24 @@ public class MainViewController {
     @FXML
     private Label selectedLocationWind;
 
+    public MainViewController(String fxmlName) {
+        super(fxmlName);
+    }
+
     @FXML
     void checkWeatherNextDays(ActionEvent event) {
+        viewFactory.showNextWeatherView();
+        Stage stage = (Stage) currentData.getScene().getWindow();
+        viewFactory.closeStage(stage);
+    }
+
+    @FXML
+    void setCurrentLocation(ActionEvent event) {
 
     }
 
     @FXML
-    void setLocation(ActionEvent event) {
+    void setSelectedLocation(ActionEvent event) {
 
     }
-
 }

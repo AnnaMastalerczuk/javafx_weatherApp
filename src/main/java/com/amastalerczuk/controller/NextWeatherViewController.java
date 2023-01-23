@@ -1,11 +1,14 @@
 package com.amastalerczuk.controller;
 
+import com.amastalerczuk.view.ViewFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
-public class NextWeatherViewController {
+public class NextWeatherViewController extends BaseController{
+
     @FXML
     private Label currenLocationDescription1;
 
@@ -132,8 +135,14 @@ public class NextWeatherViewController {
     @FXML
     private Label selectedLocationTemp4;
 
+    public NextWeatherViewController(String fxmlName) {
+        super(fxmlName);
+    }
+
     @FXML
     void returnToMainView(ActionEvent event) {
-
+        viewFactory.showMainView();
+        Stage stage = (Stage) currenLocationDescription1.getScene().getWindow();
+        viewFactory.closeStage(stage);
     }
 }

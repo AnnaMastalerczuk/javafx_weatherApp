@@ -1,5 +1,6 @@
 package com.amastalerczuk;
 
+import com.amastalerczuk.view.ViewFactory;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,12 +18,15 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-//        scene = new Scene(loadFXML("MainView"), 640, 480);
-        Parent parent = FXMLLoader.load(getClass().getResource("NextWeatherView.fxml"));
-        Scene scene = new Scene(parent);
 
-        stage.setScene(scene);
-        stage.show();
+        ViewFactory viewFactory = new ViewFactory();
+        viewFactory.showMainView();
+
+//        Parent parent = FXMLLoader.load(getClass().getResource("NextWeatherView.fxml"));
+//        Scene scene = new Scene(parent);
+//
+//        stage.setScene(scene);
+//        stage.show();
     }
 
     static void setRoot(String fxml) throws IOException {
