@@ -1,13 +1,22 @@
 package com.amastalerczuk.controller;
 
+import com.amastalerczuk.model.WeatherService;
+import com.amastalerczuk.model.WeatherServiceFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-public class MainViewController extends BaseController{
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class MainViewController extends BaseController implements Initializable {
+
+    private WeatherService weatherService;
+
     @FXML
     private Label currentData;
 
@@ -78,5 +87,10 @@ public class MainViewController extends BaseController{
     @FXML
     void setSelectedLocation(ActionEvent event) {
 
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        weatherService = WeatherServiceFactory.createWeatherService();
     }
 }
