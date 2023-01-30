@@ -1,21 +1,29 @@
 package com.amastalerczuk.controller;
 
+import com.amastalerczuk.config.Config;
+import com.amastalerczuk.model.Weather;
 import com.amastalerczuk.model.WeatherService;
 import com.amastalerczuk.model.WeatherServiceFactory;
+import com.amastalerczuk.model.readers.AutoCompleteTextField;
+import com.amastalerczuk.model.readers.JSONConverter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+
 import java.net.URL;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class MainViewController extends BaseController implements Initializable {
 
     private WeatherService weatherService;
+    private Map<String, Integer> citiesMap;
+
 
     @FXML
     private Label currentData;
@@ -33,6 +41,9 @@ public class MainViewController extends BaseController implements Initializable 
     private ImageView currentLocationImage;
 
     @FXML
+    private TextField currentLocationInput;
+
+    @FXML
     private Label currentLocationPressure;
 
     @FXML
@@ -40,12 +51,6 @@ public class MainViewController extends BaseController implements Initializable 
 
     @FXML
     private Label currentLocationWind;
-
-    @FXML
-    private ChoiceBox<?> listOfCurrentLocations;
-
-    @FXML
-    private ChoiceBox<?> listOfSelectedLocations;
 
     @FXML
     private Label selectedLocation;
@@ -58,6 +63,9 @@ public class MainViewController extends BaseController implements Initializable 
 
     @FXML
     private ImageView selectedLocationImage;
+
+    @FXML
+    private TextField selectedLocationInput;
 
     @FXML
     private Label selectedLocationPressure;
@@ -91,6 +99,27 @@ public class MainViewController extends BaseController implements Initializable 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+//        try {
+//            JSONConverter jsonConverter = new JSONConverter();
+//            citiesMap = jsonConverter.getCitiesMapFromJSON(Config.CITY_LIST_WITH_DATA);
+//
+//            AutoCompleteTextField.autoComplete(currentLocationInput, citiesMap);
+//            AutoCompleteTextField.autoComplete(cityNameCurrent, citiesMap);
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
         weatherService = WeatherServiceFactory.createWeatherService();
+        Weather weather = weatherService.getWeather("Warszawa");
+        displayWeather(weather);
+
     }
+
+    private void displayWeather(Weather weather) {
+        currentLocation.setText(weather.getCityName());
+
+    }
+
+
 }
