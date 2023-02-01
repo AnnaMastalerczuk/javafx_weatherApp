@@ -21,10 +21,6 @@ public class Weather {
         this.iconLink = iconLink;
     }
 
-//    private String changeDateIntoString(Date date){
-//        dateString = date.getDate();
-//    }
-
     public String getCityName() {
         return cityName;
     }
@@ -46,14 +42,61 @@ public class Weather {
     }
 
     public String getWeatherDescription() {
-        return weatherDescription;
+        return setDescriptionIntoPolish(weatherDescription);
     }
 
     public String getIconLink(){
         return iconLink;
     }
 
+    public String setDescriptionIntoPolish(String text){
+        String textInPolish = null;
 
+        switch (text){
+            case "clear sky": {
+                textInPolish = "bezchmurnie";
+                break;
+            }
+            case "few clouds": {
+                textInPolish = "prawie bezchmurnie";
+                break;
+            }
+            case "scattered clouds": {
+                textInPolish = "lekkie zachmurzenie";
+                break;
+            }
+            case "broken clouds": {
+                textInPolish = "duże zachmurzenie";
+                break;
+            }
+            case "overcast clouds": {
+                textInPolish = "duże zachmurzenie";
+                break;
+            }
+            case "shower rain": {
+                textInPolish = "lekki deszcz";
+                break;
+            }
+            case "rain": {
+                textInPolish = "deszcz";
+                break;
+            }
+            case "thunderstorm": {
+                textInPolish = "burza";
+                break;
+            }
+            case "snow": {
+                textInPolish = "śnieg";
+                break;
+            }
+            case "mist": {
+                textInPolish = "gła";
+                break;
+            }
+            default: break;
+        }
+        return textInPolish;
+    }
 
 
 }
