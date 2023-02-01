@@ -30,15 +30,15 @@ public class Weather {
     }
 
     public double getTempInCelsius() {
-        return tempInCelsius;
+        return Math.round(tempInCelsius);
     }
 
     public double getHumidity() {
-        return humidity;
+        return Math.round(humidity);
     }
 
     public double getWind() {
-        return wind;
+        return Math.round(wind);
     }
 
     public double getPressure() {

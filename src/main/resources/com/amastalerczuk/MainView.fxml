@@ -10,26 +10,24 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="389.0" prefWidth="636.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="420.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Label layoutX="282.0" layoutY="24.0" text="Weather App" />
-        <AnchorPane fx:id="anchorPaneCurrentWeatherCurrentLocation" layoutX="-1.0" layoutY="141.0" prefHeight="136.0" prefWidth="300.0">
+        <Label layoutX="315.0" layoutY="25.0" text="Weather App" />
+        <AnchorPane fx:id="anchorPaneCurrentWeatherCurrentLocation" layoutX="25.0" layoutY="170.0" prefHeight="170.0" prefWidth="300.0">
             <children>
-                <AnchorPane layoutX="8.0" layoutY="41.0" prefHeight="118.0" prefWidth="160.0">
+                <AnchorPane layoutY="40.0" prefHeight="120.0" prefWidth="150.0">
                     <children>
-                        <Label fx:id="currentLocationTemperature" layoutX="92.0" layoutY="34.0" prefHeight="18.0" prefWidth="53.0" />
-                        <Label fx:id="currentLocationDescription" layoutX="31.0" layoutY="79.0" text="opis" />
-                  <ImageView fx:id="currentLocationImage" fitHeight="57.0" fitWidth="70.0" layoutX="9.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                        <Label fx:id="currentLocationTemperature" layoutX="90.0" layoutY="40.0" prefHeight="18.0" prefWidth="50.0" text="555" />
+                        <Label fx:id="currentLocationDescription" layoutY="90.0" prefHeight="18.0" prefWidth="150.0" text="55555" />
+                  <ImageView fx:id="currentLocationImage" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/cloudy-g186d3d7aa_1280.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="92.0" layoutY="14.0" />
+                     </image></ImageView>
                     </children>
                 </AnchorPane>
-                <GridPane layoutX="168.0" layoutY="33.0" prefHeight="128.0" prefWidth="132.0">
+                <GridPane layoutX="150.0" layoutY="30.0" prefHeight="120.0" prefWidth="150.0">
                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="120.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
@@ -46,27 +44,23 @@
                         <Label fx:id="currentLocationWind" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                     </children>
                 </GridPane>
-                <Label fx:id="currentLocation" layoutX="26.0" layoutY="14.0" />
+                <Label fx:id="currentLocation" prefHeight="18.0" prefWidth="300.0" text="kjjjjj" />
             </children>
         </AnchorPane>
-        <Button layoutX="219.0" layoutY="326.0" mnemonicParsing="false" onAction="#checkWeatherNextDays" text="Sprawdź pogodę na kolejne 4 dni" />
-        <AnchorPane fx:id="anchorPaneCurrentWeatherSelectedLocation" layoutX="318.0" layoutY="141.0" prefHeight="154.0" prefWidth="318.0">
+        <Button layoutX="253.0" layoutY="350.0" mnemonicParsing="false" onAction="#checkWeatherNextDays" text="Sprawdź pogodę na kolejne 4 dni" />
+        <AnchorPane fx:id="anchorPaneCurrentWeatherSelectedLocation" layoutX="375.0" layoutY="170.0" prefHeight="170.0" prefWidth="300.0">
             <children>
-                <AnchorPane layoutX="8.0" layoutY="41.0" prefHeight="107.0" prefWidth="160.0">
+                <AnchorPane layoutY="40.0" prefHeight="120.0" prefWidth="150.0">
                     <children>
-                        <Label fx:id="selectedLocationTemperature" layoutX="80.0" layoutY="31.0" prefHeight="18.0" prefWidth="53.0" />
-                        <Label fx:id="selectedLocationDescription" layoutX="23.0" layoutY="68.0" text="opis" />
-                  <ImageView fx:id="selectedLocationImage" fitHeight="57.0" fitWidth="70.0" layoutX="1.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/cloudy-g186d3d7aa_1280.png" />
-                     </image>
-                  </ImageView>
+                        <Label fx:id="selectedLocationTemperature" layoutX="90.0" layoutY="40.0" prefHeight="18.0" prefWidth="50.0" />
+                        <Label fx:id="selectedLocationDescription" layoutY="90.0" prefHeight="18.0" prefWidth="140.0" />
+                  <ImageView fx:id="selectedLocationImage" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
                     </children>
                 </AnchorPane>
-                <GridPane layoutX="168.0" layoutY="30.0" prefHeight="118.0" prefWidth="132.0">
+                <GridPane layoutX="150.0" layoutY="30.0" prefHeight="120.0" prefWidth="150.0">
                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="66.0" minWidth="10.0" prefWidth="66.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="66.800048828125" minWidth="10.0" prefWidth="66.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="80.60001220703126" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="66.800048828125" minWidth="10.0" prefWidth="49.399987792968744" />
                     </columnConstraints>
                     <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -82,17 +76,25 @@
                         <Label fx:id="selectedLocationWind" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                     </children>
                 </GridPane>
-                <Label fx:id="selectedLocation" layoutX="14.0" layoutY="14.0" />
+                <Label fx:id="selectedLocation" prefHeight="18.0" prefWidth="300.0" />
             </children>
         </AnchorPane>
-          <Label layoutX="14.0" layoutY="89.0" text="Obecna lokalizacja:" />
-      <TextField fx:id="currentLocationInput" layoutX="116.0" layoutY="84.0" prefHeight="26.0" prefWidth="132.0" />
-      <Button layoutX="249.0" layoutY="85.0" mnemonicParsing="false" onAction="#setCurrentLocation" text="OK" />
-          <Label fx:id="currentData" alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" layoutY="56.0" prefHeight="18.0" prefWidth="592.0" textAlignment="CENTER" />
-          <Label layoutX="336.0" layoutY="89.0" text="Wybrana lokalizacja:" />
-      <TextField fx:id="selectedLocationInput" layoutX="444.0" layoutY="84.0" prefHeight="26.0" prefWidth="132.0" />
-          <Button layoutX="576.0" layoutY="85.0" mnemonicParsing="false" onAction="#setSelectedLocation" text="OK" />
-      <Label fx:id="alertCurrentLocation" layoutX="14.0" layoutY="124.0" />
-      <Label fx:id="alertSelectedLocation" layoutX="338.0" layoutY="124.0" />
+      <AnchorPane layoutX="25.0" layoutY="100.0" prefHeight="30.0" prefWidth="300.0">
+         <children>
+                <Label layoutY="6.0" text="Obecna lokalizacja:" />
+            <TextField fx:id="currentLocationInput" layoutX="111.0" prefHeight="30.0" prefWidth="140.0" />
+            <Button layoutX="260.0" mnemonicParsing="false" onAction="#setCurrentLocation" prefHeight="30.0" prefWidth="35.0" text="OK" />
+         </children>
+      </AnchorPane>
+          <Label fx:id="currentData" alignment="CENTER" contentDisplay="CENTER" layoutX="54.0" layoutY="60.0" prefHeight="18.0" prefWidth="592.0" textAlignment="CENTER" />
+      <AnchorPane layoutX="375.0" layoutY="100.0" prefHeight="30.0" prefWidth="300.0">
+         <children>
+                <Label layoutX="1.0" layoutY="7.0" prefHeight="18.0" prefWidth="107.0" text="Wybrana lokalizacja:" />
+            <TextField fx:id="selectedLocationInput" layoutX="118.0" layoutY="1.0" prefHeight="30.0" prefWidth="140.0" />
+                <Button layoutX="265.0" mnemonicParsing="false" onAction="#setSelectedLocation" prefHeight="30.0" prefWidth="40.0" text="OK" />
+         </children>
+      </AnchorPane>
+      <Label fx:id="alertCurrentLocation" layoutX="25.0" layoutY="160.0" prefHeight="18.0" prefWidth="300.0" />
+      <Label fx:id="alertSelectedLocation" layoutX="375.0" layoutY="160.0" prefHeight="18.0" prefWidth="300.0" />
     </children>
 </AnchorPane>
