@@ -1,6 +1,7 @@
 package com.amastalerczuk.controller;
 
 import com.amastalerczuk.config.Config;
+import com.amastalerczuk.model.DateService;
 import com.amastalerczuk.model.Weather;
 import com.amastalerczuk.model.WeatherService;
 import com.amastalerczuk.model.WeatherServiceFactory;
@@ -12,17 +13,29 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+
+import javafx.util.converter.LocalDateTimeStringConverter;
 
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.Map;
 import java.util.ResourceBundle;
 
 public class MainViewController extends BaseController implements Initializable {
 
     private WeatherService weatherService;
+    private DateService dateService;
     private Map<String, Integer> citiesMap;
+
+    @FXML
+    private AnchorPane anchorPaneCurrentWeatherCurrentLocation;
+
+    @FXML
+    private AnchorPane anchorPaneCurrentWeatherSelectedLocation;
 
     @FXML
     private Label currentData;
@@ -35,6 +48,12 @@ public class MainViewController extends BaseController implements Initializable 
 
     @FXML
     private Label currentLocationHumidity;
+
+    @FXML
+    private Label alertCurrentLocation;
+
+    @FXML
+    private Label alertSelectedLocation;
 
     @FXML
     private ImageView currentLocationImage;
@@ -88,6 +107,18 @@ public class MainViewController extends BaseController implements Initializable 
 
     @FXML
     void setCurrentLocation(ActionEvent event) {
+        try{
+            anchorPaneCurrentWeatherCurrentLocation.setVisible(true);
+            alertCurrentLocation.setVisible(false);
+            weatherService = WeatherServiceFactory.createWeatherService();
+            Weather weather = weatherService.getWeather(currentLocationInput.getText());
+            displayCurrentWeather(weather);
+        } catch (RuntimeException e){
+            anchorPaneCurrentWeatherCurrentLocation.setVisible(false);
+            alertCurrentLocation.setVisible(true);
+            alertCurrentLocation.setText("Podano nieprawidłową nazwę miasta");
+            e.printStackTrace();
+        }
 
     }
 
@@ -96,8 +127,19 @@ public class MainViewController extends BaseController implements Initializable 
 
     }
 
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        anchorPaneCurrentWeatherCurrentLocation.setVisible(false);
+        anchorPaneCurrentWeatherSelectedLocation.setVisible(false);
+        alertCurrentLocation.setText("Podaj bieżącą lokalizację");
+        alertSelectedLocation.setText("Podaj docelową lokalizację");
+
+        dateService = new DateService();
+        currentData.setText(dateService.setCurrentDate());
+        System.out.println(dateService.setCurrentDate());
+
 //        try {
 //            JSONConverter jsonConverter = new JSONConverter();
 //            citiesMap = jsonConverter.getCitiesMapFromJSON(Config.CITY_LIST_WITH_DATA);
@@ -108,19 +150,15 @@ public class MainViewController extends BaseController implements Initializable 
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //        }
-
-        weatherService = WeatherServiceFactory.createWeatherService();
-        Weather weather = weatherService.getWeather("London");
-        displayWeather(weather);
-
     }
 
-    private void displayWeather(Weather weather) {
-        currentLocation.setText(weather.getCityName());
-        currentLocationTemperature.setText(Double.toString(weather.getTempInCelsius()));
-        currentLocationHumidity.setText(Double.toString(weather.getHumidity()));
-        currentLocationWind.setText(Double.toString(weather.getWind()));
-        System.out.println(weather.getDate());
+    private void displayCurrentWeather(Weather weather) {
+        currentLocation.setText(weather.getCityName().toUpperCase());
+        currentLocationTemperature.setText(Double.toString(weather.getTempInCelsius()) + " °C");
+        currentLocationHumidity.setText(Double.toString(weather.getHumidity()) + " %");
+        currentLocationWind.setText(Double.toString(weather.getWind()) + " m/s");
+        currentLocationPressure.setText(String.valueOf(weather.getPressure()) + " hPa");
+
     }
 
 

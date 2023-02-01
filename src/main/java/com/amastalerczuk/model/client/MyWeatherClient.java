@@ -2,6 +2,7 @@ package com.amastalerczuk.model.client;
 
 import com.amastalerczuk.model.Weather;
 
+import javafx.scene.image.Image;
 import net.aksingh.owmjapis.api.APIException;
 import net.aksingh.owmjapis.core.OWM;
 import net.aksingh.owmjapis.model.CurrentWeather;
@@ -18,7 +19,9 @@ public class MyWeatherClient implements WeatherClient{
     private double temperature;
     private double humidity;
     private double wind;
-    private Date date;
+    private double pressure;
+    private Image image;
+
 
     public MyWeatherClient() {
         owm.setUnit(OWM.Unit.METRIC);
@@ -32,12 +35,14 @@ public class MyWeatherClient implements WeatherClient{
             temperature = cwd.getMainData().getTempMax();
             humidity = cwd.getMainData().getHumidity();
             wind = cwd.getWindData().getSpeed();
-            date = cwd.getDateTime();
+            pressure = cwd.getMainData().getPressure();
+
+
         } catch (APIException e) {
             throw new RuntimeException(e);
         }
 
-        return new Weather(cityName, temperature, humidity, wind, date);
+        return new Weather(cityName, temperature, humidity, wind, pressure);
     }
 
 }
