@@ -9,13 +9,16 @@ public class Weather {
     private double wind;
     private double pressure;
     private String weatherDescription;
+    private String iconLink;
 
-    public Weather(String cityName, double temperature, double humidity, double wind, double pressure) {
+    public Weather(String cityName, double temperature, double humidity, double wind, double pressure, String weatherDescription, String iconLink) {
         this.cityName = cityName;
         this.tempInCelsius = temperature;
         this.humidity = humidity;
         this.wind = wind;
         this.pressure = pressure;
+        this.weatherDescription = weatherDescription;
+        this.iconLink = iconLink;
     }
 
 //    private String changeDateIntoString(Date date){
@@ -45,6 +48,11 @@ public class Weather {
     public String getWeatherDescription() {
         return weatherDescription;
     }
+
+    public String getIconLink(){
+        return iconLink;
+    }
+
 
 
 

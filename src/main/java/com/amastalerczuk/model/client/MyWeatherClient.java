@@ -21,6 +21,8 @@ public class MyWeatherClient implements WeatherClient{
     private double wind;
     private double pressure;
     private Image image;
+    private String message;
+    private String iconLink;
 
 
     public MyWeatherClient() {
@@ -36,13 +38,14 @@ public class MyWeatherClient implements WeatherClient{
             humidity = cwd.getMainData().getHumidity();
             wind = cwd.getWindData().getSpeed();
             pressure = cwd.getMainData().getPressure();
-
+            iconLink = cwd.getWeatherList().get(0).getIconLink();
+            message = cwd.getWeatherList().get(0).getDescription();
 
         } catch (APIException e) {
             throw new RuntimeException(e);
         }
 
-        return new Weather(cityName, temperature, humidity, wind, pressure);
+        return new Weather(cityName, temperature, humidity, wind, pressure, message, iconLink);
     }
 
 }

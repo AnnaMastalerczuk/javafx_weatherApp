@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -158,6 +159,9 @@ public class MainViewController extends BaseController implements Initializable 
         currentLocationHumidity.setText(Double.toString(weather.getHumidity()) + " %");
         currentLocationWind.setText(Double.toString(weather.getWind()) + " m/s");
         currentLocationPressure.setText(String.valueOf(weather.getPressure()) + " hPa");
+        currentLocationDescription.setText((weather.getWeatherDescription()));
+        currentLocationImage.setImage(new Image(weather.getIconLink()));
+
 
     }
 
