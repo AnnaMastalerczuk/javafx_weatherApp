@@ -4,6 +4,7 @@ module com.amastalerczuk {
     requires org.controlsfx.controls;
     requires com.google.gson;
     requires json.simple;
+    requires owm.japis;
 
     opens com.amastalerczuk to javafx.fxml;
     opens com.amastalerczuk.controller to javafx.fxml;

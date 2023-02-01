@@ -24,7 +24,6 @@ public class MainViewController extends BaseController implements Initializable 
     private WeatherService weatherService;
     private Map<String, Integer> citiesMap;
 
-
     @FXML
     private Label currentData;
 
@@ -111,14 +110,17 @@ public class MainViewController extends BaseController implements Initializable 
 //        }
 
         weatherService = WeatherServiceFactory.createWeatherService();
-        Weather weather = weatherService.getWeather("Warszawa");
+        Weather weather = weatherService.getWeather("London");
         displayWeather(weather);
 
     }
 
     private void displayWeather(Weather weather) {
         currentLocation.setText(weather.getCityName());
-
+        currentLocationTemperature.setText(Double.toString(weather.getTempInCelsius()));
+        currentLocationHumidity.setText(Double.toString(weather.getHumidity()));
+        currentLocationWind.setText(Double.toString(weather.getWind()));
+        System.out.println(weather.getDate());
     }
 
 

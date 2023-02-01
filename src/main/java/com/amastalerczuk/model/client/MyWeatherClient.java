@@ -2,71 +2,42 @@ package com.amastalerczuk.model.client;
 
 import com.amastalerczuk.model.Weather;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+import net.aksingh.owmjapis.api.APIException;
+import net.aksingh.owmjapis.core.OWM;
+import net.aksingh.owmjapis.model.CurrentWeather;
+import net.aksingh.owmjapis.model.HourlyWeatherForecast;
 
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Scanner;
+import java.time.LocalDate;
+import java.util.Date;
+
+import static com.amastalerczuk.config.Config.API_KEY;
 
 public class MyWeatherClient implements WeatherClient{
 
+    OWM owm = new OWM(API_KEY);
+    private double temperature;
+    private double humidity;
+    private double wind;
+    private Date date;
+
+    public MyWeatherClient() {
+        owm.setUnit(OWM.Unit.METRIC);
+        owm.setLanguage(OWM.Language.POLISH);
+    }
 
     @Override
     public Weather getWeather(String cityName) {
-        check();
-        return new Weather(cityName);
-    }
-
-    public void check(){
         try {
-            //Public API:
-            //https://www.metaweather.com/api/location/search/?query=<CITY>
-            //https://www.metaweather.com/api/location/44418/
-
-            URL url = new URL("https://api.openweathermap.org/data/2.5/weather?q=London&appid=a98684e57e4bc16b5f34ff523426fbff");
-
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("GET");
-            conn.connect();
-
-            //Check if connect is made
-            int responseCode = conn.getResponseCode();
-
-            // 200 OK
-            if (responseCode != 200) {
-                throw new RuntimeException("HttpResponseCode: " + responseCode);
-            } else {
-
-                StringBuilder informationString = new StringBuilder();
-                Scanner scanner = new Scanner(url.openStream());
-
-                while (scanner.hasNext()) {
-                    informationString.append(scanner.nextLine());
-                }
-                //Close the scanner
-                scanner.close();
-
-                System.out.println(informationString);
-
-//
-//                //JSON simple library Setup with Maven is used to convert strings to JSON
-//                JSONParser parse = new JSONParser();
-//                JSONArray dataObject = (JSONArray) parse.parse(String.valueOf(informationString));
-//
-//                //Get the first JSON object in the JSON array
-//                System.out.println(dataObject.get(0));
-//
-//                JSONObject countryData = (JSONObject) dataObject.get(0);
-//
-//                System.out.println(countryData.get("woeid"));
-
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+            CurrentWeather cwd = owm.currentWeatherByCityName(cityName);
+            temperature = cwd.getMainData().getTempMax();
+            humidity = cwd.getMainData().getHumidity();
+            wind = cwd.getWindData().getSpeed();
+            date = cwd.getDateTime();
+        } catch (APIException e) {
+            throw new RuntimeException(e);
         }
 
+        return new Weather(cityName, temperature, humidity, wind, date);
     }
+
 }

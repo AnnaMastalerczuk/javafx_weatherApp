@@ -1,6 +1,7 @@
 package com.amastalerczuk.model;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class Weather {
     private String cityName;
@@ -8,10 +9,14 @@ public class Weather {
     private double humidity;
     private double wind;
     private String weatherDescription;
-    private LocalDate date;
+    private Date date;
 
-    public Weather(String cityName) {
+    public Weather(String cityName, double temperature, double humidity, double wind, Date date) {
         this.cityName = cityName;
+        this.tempInCelsius = temperature;
+        this.humidity = humidity;
+        this.wind = wind;
+        this.date = date;
     }
 
     public String getCityName() {
@@ -34,7 +39,7 @@ public class Weather {
         return weatherDescription;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
