@@ -117,18 +117,26 @@ public class MainViewController extends BaseController implements Initializable 
         } catch (RuntimeException e){
             anchorPaneCurrentWeatherCurrentLocation.setVisible(false);
             alertCurrentLocation.setVisible(true);
-            alertCurrentLocation.setText("Podano nieprawidłową nazwę miasta");
+            alertCurrentLocation.setText("Błąd. Podaj nazwę jeszcze raz.");
             e.printStackTrace();
         }
-
     }
 
     @FXML
     void setSelectedLocation(ActionEvent event) {
-
+        try{
+            anchorPaneCurrentWeatherSelectedLocation.setVisible(true);
+            alertSelectedLocation.setVisible(false);
+            weatherService = WeatherServiceFactory.createWeatherService();
+            Weather weather = weatherService.getWeather(selectedLocationInput.getText());
+            displaySelectedWeather(weather);
+        } catch (RuntimeException e){
+            anchorPaneCurrentWeatherCurrentLocation.setVisible(false);
+            alertCurrentLocation.setVisible(true);
+            alertCurrentLocation.setText("Błąd. Podaj nazwę jeszcze raz.");
+            e.printStackTrace();
+        }
     }
-
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -161,8 +169,16 @@ public class MainViewController extends BaseController implements Initializable 
         currentLocationPressure.setText(String.valueOf(weather.getPressure()) + " hPa");
         currentLocationDescription.setText((weather.getWeatherDescription()));
         currentLocationImage.setImage(new Image(weather.getIconLink()));
+    }
 
-
+    private void displaySelectedWeather(Weather weather) {
+        selectedLocation.setText(weather.getCityName().toUpperCase());
+        selectedLocationTemperature.setText(Double.toString(weather.getTempInCelsius()) + " °C");
+        selectedLocationHumidity.setText(Double.toString(weather.getHumidity()) + " %");
+        selectedLocationWind.setText(Double.toString(weather.getWind()) + " m/s");
+        selectedLocationPressure.setText(String.valueOf(weather.getPressure()) + " hPa");
+        selectedLocationDescription.setText((weather.getWeatherDescription()));
+        selectedLocationImage.setImage(new Image(weather.getIconLink()));
     }
 
 

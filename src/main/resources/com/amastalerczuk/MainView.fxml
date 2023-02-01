@@ -3,7 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -12,17 +11,14 @@
 
 <AnchorPane prefHeight="420.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Label layoutX="315.0" layoutY="25.0" text="Weather App" />
-        <AnchorPane fx:id="anchorPaneCurrentWeatherCurrentLocation" layoutX="25.0" layoutY="170.0" prefHeight="170.0" prefWidth="300.0">
+        <Label layoutX="315.0" layoutY="20.0" text="Weather App" />
+        <AnchorPane fx:id="anchorPaneCurrentWeatherCurrentLocation" layoutX="25.0" layoutY="160.0" prefHeight="170.0" prefWidth="300.0">
             <children>
                 <AnchorPane layoutY="40.0" prefHeight="120.0" prefWidth="150.0">
                     <children>
-                        <Label fx:id="currentLocationTemperature" layoutX="90.0" layoutY="40.0" prefHeight="18.0" prefWidth="50.0" text="555" />
-                        <Label fx:id="currentLocationDescription" layoutY="90.0" prefHeight="18.0" prefWidth="150.0" text="55555" />
-                  <ImageView fx:id="currentLocationImage" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/cloudy-g186d3d7aa_1280.png" />
-                     </image></ImageView>
+                        <Label fx:id="currentLocationTemperature" layoutX="90.0" layoutY="40.0" prefHeight="18.0" prefWidth="50.0" />
+                        <Label fx:id="currentLocationDescription" layoutY="90.0" prefHeight="18.0" prefWidth="150.0" />
+                  <ImageView fx:id="currentLocationImage" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
                     </children>
                 </AnchorPane>
                 <GridPane layoutX="150.0" layoutY="30.0" prefHeight="120.0" prefWidth="150.0">
@@ -48,7 +44,7 @@
             </children>
         </AnchorPane>
         <Button layoutX="253.0" layoutY="350.0" mnemonicParsing="false" onAction="#checkWeatherNextDays" text="Sprawdź pogodę na kolejne 4 dni" />
-        <AnchorPane fx:id="anchorPaneCurrentWeatherSelectedLocation" layoutX="375.0" layoutY="170.0" prefHeight="170.0" prefWidth="300.0">
+        <AnchorPane fx:id="anchorPaneCurrentWeatherSelectedLocation" layoutX="375.0" layoutY="160.0" prefHeight="170.0" prefWidth="300.0">
             <children>
                 <AnchorPane layoutY="40.0" prefHeight="120.0" prefWidth="150.0">
                     <children>
