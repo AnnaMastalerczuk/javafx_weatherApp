@@ -1,6 +1,8 @@
 package com.amastalerczuk.model;
 
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Weather {
     private String cityName;
@@ -52,6 +54,18 @@ public class Weather {
     public String setDescriptionIntoPolish(String text){
         String textInPolish = null;
 
+//        Pattern patternRain = Pattern.compile("rain");
+//        Pattern patternThunderstorm = Pattern.compile("thunderstorm");
+//        Pattern patternDrizzle = Pattern.compile("drizzle");
+//        Pattern patternSnow = Pattern.compile("snow");
+//        Pattern patternClouds = Pattern.compile("cloud");
+//
+//        Matcher matcherRain = patternRain.matcher(text);
+//        Matcher matcherThunderstorm = patternThunderstorm.matcher(text);
+//        Matcher matcherDrizzle = patternDrizzle.matcher(text);
+//        Matcher matcherSnow = patternSnow.matcher(text);
+//        Matcher matcherClouds = patternClouds.matcher(text);
+
         switch (text){
             case "clear sky": {
                 textInPolish = "bezchmurnie";
@@ -90,13 +104,15 @@ public class Weather {
                 break;
             }
             case "mist": {
-                textInPolish = "gła";
+                textInPolish = "mgła";
                 break;
             }
-            default: break;
+            default: {
+//                textInPolish = text;
+                break;
+            }
         }
         return textInPolish;
     }
-
 
 }

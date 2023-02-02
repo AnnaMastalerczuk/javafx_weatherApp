@@ -170,7 +170,6 @@ public class MainViewController extends BaseController implements Initializable 
         currentLocationDescription.setText((weather.getWeatherDescription()));
         currentLocationImage.setImage(new Image(weather.getIconLink()));
         System.out.println(weather.getIconLink());
-
     }
 
     private void displaySelectedWeather(Weather weather) {
