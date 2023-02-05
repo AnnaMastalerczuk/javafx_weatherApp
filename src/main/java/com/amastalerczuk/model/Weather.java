@@ -1,12 +1,10 @@
 package com.amastalerczuk.model;
 
-import java.util.Date;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class Weather {
     private String cityName;
     private double tempInCelsius;
+    private double tempMax;
+    private double tempMin;
     private double humidity;
     private double wind;
     private double pressure;
@@ -23,12 +21,30 @@ public class Weather {
         this.iconLink = iconLink;
     }
 
+    public Weather(String cityName, String weatherDescription, String iconLink, double tempMax, double tempMin, double humidity, double wind){
+        this.cityName = cityName;
+        this.tempMax = tempMax;
+        this.tempMin = tempMin;
+        this.humidity = humidity;
+        this.wind = wind;
+        this.weatherDescription = weatherDescription;
+        this.iconLink = iconLink;
+    }
+
     public String getCityName() {
         return cityName;
     }
 
     public double getTempInCelsius() {
         return Math.round(tempInCelsius);
+    }
+
+    public double getTempMax() {
+        return tempMax;
+    }
+
+    public double getTempMin() {
+        return tempMin;
     }
 
     public double getHumidity() {
@@ -44,7 +60,9 @@ public class Weather {
     }
 
     public String getWeatherDescription() {
-        return setDescriptionIntoPolish(weatherDescription);
+        return weatherDescription;
+
+//        return setDescriptionIntoPolish(weatherDescription);
     }
 
     public String getIconLink(){

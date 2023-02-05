@@ -18,6 +18,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import javafx.util.converter.LocalDateTimeStringConverter;
+import org.json.simple.parser.ParseException;
 
 
 import java.net.URL;
@@ -104,6 +105,14 @@ public class MainViewController extends BaseController implements Initializable 
         viewFactory.showNextWeatherView();
         Stage stage = (Stage) currentData.getScene().getWindow();
         viewFactory.closeStage(stage);
+//        if (anchorPaneCurrentWeatherCurrentLocation.isVisible() && anchorPaneCurrentWeatherSelectedLocation.isVisible()){
+//            viewFactory.showNextWeatherView();
+//            stage = (Stage) currentData.getScene().getWindow();
+//            viewFactory.closeStage(stage);
+//        } else {
+//            alertCurrentLocation.setText("Podaj nazwę miejscowości");
+//            alertSelectedLocation.setText("Podaj nazwę miejscowości");
+//        }
     }
 
     @FXML
@@ -112,9 +121,9 @@ public class MainViewController extends BaseController implements Initializable 
             anchorPaneCurrentWeatherCurrentLocation.setVisible(true);
             alertCurrentLocation.setVisible(false);
             weatherService = WeatherServiceFactory.createWeatherService();
-            Weather weather = weatherService.getWeather(currentLocationInput.getText());
+            Weather weather = weatherService.getCurrentWeather(currentLocationInput.getText());
             displayCurrentWeather(weather);
-        } catch (RuntimeException e){
+        } catch (RuntimeException | ParseException e){
             anchorPaneCurrentWeatherCurrentLocation.setVisible(false);
             alertCurrentLocation.setVisible(true);
             alertCurrentLocation.setText("Błąd. Podaj nazwę jeszcze raz.");
@@ -128,12 +137,12 @@ public class MainViewController extends BaseController implements Initializable 
             anchorPaneCurrentWeatherSelectedLocation.setVisible(true);
             alertSelectedLocation.setVisible(false);
             weatherService = WeatherServiceFactory.createWeatherService();
-            Weather weather = weatherService.getWeather(selectedLocationInput.getText());
+            Weather weather = weatherService.getCurrentWeather(selectedLocationInput.getText());
             displaySelectedWeather(weather);
-        } catch (RuntimeException e){
-            anchorPaneCurrentWeatherCurrentLocation.setVisible(false);
-            alertCurrentLocation.setVisible(true);
-            alertCurrentLocation.setText("Błąd. Podaj nazwę jeszcze raz.");
+        } catch (RuntimeException | ParseException e){
+            anchorPaneCurrentWeatherSelectedLocation.setVisible(false);
+            alertSelectedLocation.setVisible(true);
+            alertSelectedLocation.setText("Błąd. Podaj nazwę jeszcze raz.");
             e.printStackTrace();
         }
     }

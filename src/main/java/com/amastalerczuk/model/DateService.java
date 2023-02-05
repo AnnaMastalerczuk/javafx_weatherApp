@@ -14,6 +14,13 @@ public class DateService {
         return dateString;
     }
 
+    public String setNextDate(int number){
+        date = LocalDate.now().plusDays(number);
+        dayName = changeEnglishDayNameIntoPolish(String.valueOf(date.getDayOfWeek()));
+        dateString = String.valueOf(date) + " " + dayName;
+        return dateString;
+    }
+
     private String changeEnglishDayNameIntoPolish(String dayName) {
         String name = null;
 

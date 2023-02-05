@@ -1,11 +1,15 @@
 package com.amastalerczuk;
 
+import com.amastalerczuk.model.Weather;
+import com.amastalerczuk.model.client.APIConnector;
+import com.amastalerczuk.model.client.MyAPIWeatherClient;
 import com.amastalerczuk.view.ViewFactory;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 
@@ -20,13 +24,8 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
 
         ViewFactory viewFactory = new ViewFactory();
-        viewFactory.showMainView();
 
-//        Parent parent = FXMLLoader.load(getClass().getResource("NextWeatherView.fxml"));
-//        Scene scene = new Scene(parent);
-//
-//        stage.setScene(scene);
-//        stage.show();
+        viewFactory.showMainView();
     }
 
     static void setRoot(String fxml) throws IOException {

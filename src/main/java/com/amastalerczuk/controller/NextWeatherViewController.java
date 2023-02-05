@@ -1,13 +1,35 @@
 package com.amastalerczuk.controller;
 
+import com.amastalerczuk.model.DateService;
+import com.amastalerczuk.model.Weather;
+import com.amastalerczuk.model.WeatherService;
+import com.amastalerczuk.model.WeatherServiceFactory;
+import com.amastalerczuk.model.client.MyAPIWeatherClient;
+//import com.amastalerczuk.model.client.MyWeatherClient;
 import com.amastalerczuk.view.ViewFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import org.json.simple.parser.ParseException;
 
-public class NextWeatherViewController extends BaseController{
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+
+public class NextWeatherViewController extends BaseController implements Initializable {
+
+    private DateService dateService;
+    private WeatherService weatherService;
+    private List<Weather> weatherList = new ArrayList<>();
+    
+    private String currentCityName;
+    private String selectedCityName;
 
     @FXML
     private Label currenLocationDescription1;
@@ -140,9 +162,66 @@ public class NextWeatherViewController extends BaseController{
     }
 
     @FXML
-    void returnToMainView(ActionEvent event) {
+    void returnToMainView() {
         viewFactory.showMainView();
         Stage stage = (Stage) currenLocationDescription1.getScene().getWindow();
         viewFactory.closeStage(stage);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        setDates();
+        
+        currentCityName = "Gdansk";
+        selectedCityName = "London";        
+
+        try {
+            weatherService = WeatherServiceFactory.createWeatherService();
+            weatherList = weatherService.getFutureWeather(currentCityName);
+            displayWeather(weatherList);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+       
+//        weatherService = WeatherServiceFactory.createWeatherService();
+//        Weather weather = weatherService.getNextWeather("London");
+
+//        MyAPIWeatherClient myAPIWeatherClient = new MyAPIWeatherClient();
+//        try {
+//            Weather weather = myAPIWeatherClient.getNextWeather("London");
+//        } catch (MalformedURLException e) {
+//            throw new RuntimeException(e);
+//        }
+
+
+    }
+
+    private void displayWeather(List<Weather> weatherList) {
+
+        currentLocation.setText(weatherList.get(0).getCityName().toUpperCase());
+        currentLocationTemp1.setText(String.valueOf(weatherList.get(0).getTempMax()));
+        currentLocationPressure1.setText(String.valueOf(weatherList.get(0).getPressure()));
+        currentLocationImg1.setImage(new Image(weatherList.get(0).getIconLink()));
+
+//        currentLocationTemperature.setText(Double.toString(weather.getTempInCelsius()) + " °C");
+//        currentLocationHumidity.setText(Double.toString(weather.getHumidity()) + " %");
+//        currentLocationWind.setText(Double.toString(weather.getWind()) + " m/s");
+//        currentLocationPressure.setText(String.valueOf(weather.getPressure()) + " hPa");
+//        currentLocationDescription.setText((weather.getWeatherDescription()));
+//        currentLocationImage.setImage(new Image(weather.getIconLink()));
+//        System.out.println(weather.getIconLink());
+    }
+
+    private void setDates() {
+        dateService = new DateService();
+        currentLocationData1.setText(dateService.setNextDate(1));
+        currentLocationData2.setText(dateService.setNextDate(2));
+        currentLocationData3.setText(dateService.setNextDate(3));
+        currentLocationData4.setText(dateService.setNextDate(4));
+
+        selectedLocationData1.setText(dateService.setNextDate(1));
+        selectedLocationData2.setText(dateService.setNextDate(2));
+        selectedLocationData3.setText(dateService.setNextDate(3));
+        selectedLocationData4.setText(dateService.setNextDate(4));
     }
 }
