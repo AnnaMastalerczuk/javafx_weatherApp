@@ -35,9 +35,9 @@ public class MyAPIWeatherClient implements WeatherClient{
         if (cityName.contains(" ")){
             String newName;
             newName = cityName.replace(" ", "%20");
-            this.futureWeatherLink = "http://api.weatherapi.com/v1/forecast.json?key=" + Config.WEATHERAPI_KEY +"&q="+ newName + "&days=5&aqi=no&alerts=no";
+            this.futureWeatherLink = "http://api.weatherapi.com/v1/forecast.json?key=" + Config.WEATHERAPI_KEY +"&q="+ newName + "&days=4&aqi=no&alerts=no";
         }
-        this.futureWeatherLink = "http://api.weatherapi.com/v1/forecast.json?key=" + Config.WEATHERAPI_KEY +"&q="+ cityName + "&days=5&aqi=no&alerts=no";
+        this.futureWeatherLink = "http://api.weatherapi.com/v1/forecast.json?key=" + Config.WEATHERAPI_KEY +"&q="+ cityName + "&days=4&aqi=no&alerts=no";
     }
 
     public Weather getCurrentWeather(String cityName) throws ParseException {
@@ -95,12 +95,14 @@ public class MyAPIWeatherClient implements WeatherClient{
             double tempMin = (double) forecastDatas.get("mintemp_c");
             double humidity = (double) forecastDatas.get("avghumidity");
             double wind = (double) forecastDatas.get("maxwind_kph");
+            double totalPrecip = (double) forecastDatas.get("totalprecip_mm");
+            double totalsnow = (double) forecastDatas.get("totalsnow_cm");
 
             JSONObject conditions = (JSONObject) forecastDatas.get("condition");
             String iconLink = "http:" + (String) conditions.get("icon");
             String description = (String) conditions.get("text");
 
-            Weather weather = new Weather(cityName, description, iconLink, tempMax, tempMin, humidity, wind);
+            Weather weather = new Weather(cityName, description, iconLink, tempMax, tempMin, humidity, wind, totalPrecip, totalsnow);
             weatherForecastList.add(weather);
 //            System.out.println(tempMax);
 //            System.out.println(tempMin);
