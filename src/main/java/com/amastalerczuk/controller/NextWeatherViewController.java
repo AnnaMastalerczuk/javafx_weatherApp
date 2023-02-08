@@ -45,8 +45,10 @@ public class NextWeatherViewController extends BaseController implements Initial
     private Label selectedLocation;
 
 
-    public NextWeatherViewController(String fxmlName) {
+    public NextWeatherViewController(String fxmlName, String currentCityName, String selectedCityName) {
         super(fxmlName);
+        this.currentCityName = currentCityName;
+        this.selectedCityName = selectedCityName;
     }
 
     @FXML
@@ -60,8 +62,8 @@ public class NextWeatherViewController extends BaseController implements Initial
     public void initialize(URL url, ResourceBundle resourceBundle) {
 //        setDates();
         
-        currentCityName = "Gdansk";
-        selectedCityName = "London";
+//        currentCityName = "Gdansk";
+//        selectedCityName = "London";
 
         currentLocation.setText(currentCityName.toUpperCase());
         selectedLocation.setText(selectedCityName.toUpperCase());

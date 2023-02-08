@@ -20,10 +20,10 @@ public class ViewFactory {
         initializeStage(controller);
     }
 
-    public void showNextWeatherView() {
+    public void showNextWeatherView(String currentCityName, String selectedCityName) {
         System.out.println("next weather window");
 
-        BaseController controller = new NextWeatherViewController("NextWeatherView.fxml");
+        BaseController controller = new NextWeatherViewController("NextWeatherView.fxml", currentCityName, selectedCityName);
         initializeStage(controller);
     }
 

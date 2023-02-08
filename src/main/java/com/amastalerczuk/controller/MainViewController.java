@@ -32,6 +32,8 @@ public class MainViewController extends BaseController implements Initializable 
     private WeatherService weatherService;
     private DateService dateService;
     private Map<String, Integer> citiesMap;
+    private String currentCityName;
+    private String selectedCityName;
 
     @FXML
     private AnchorPane anchorPaneCurrentWeatherCurrentLocation;
@@ -102,7 +104,7 @@ public class MainViewController extends BaseController implements Initializable 
 
     @FXML
     void checkWeatherNextDays(ActionEvent event) {
-        viewFactory.showNextWeatherView();
+        viewFactory.showNextWeatherView(currentCityName, selectedCityName);
         Stage stage = (Stage) currentData.getScene().getWindow();
         viewFactory.closeStage(stage);
 //        if (anchorPaneCurrentWeatherCurrentLocation.isVisible() && anchorPaneCurrentWeatherSelectedLocation.isVisible()){
@@ -118,6 +120,7 @@ public class MainViewController extends BaseController implements Initializable 
     @FXML
     void setCurrentLocation(ActionEvent event) {
         try{
+            currentCityName = currentLocationInput.getText();
             anchorPaneCurrentWeatherCurrentLocation.setVisible(true);
             alertCurrentLocation.setVisible(false);
             weatherService = WeatherServiceFactory.createWeatherService();
@@ -134,6 +137,7 @@ public class MainViewController extends BaseController implements Initializable 
     @FXML
     void setSelectedLocation(ActionEvent event) {
         try{
+            selectedCityName = selectedLocationInput.getText();
             anchorPaneCurrentWeatherSelectedLocation.setVisible(true);
             alertSelectedLocation.setVisible(false);
             weatherService = WeatherServiceFactory.createWeatherService();
