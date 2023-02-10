@@ -17,6 +17,7 @@ public class MyAPIWeatherClient implements WeatherClient{
     private String cityName;
     private String futureWeatherLink;
     private String currentWeatherLink;
+    private String language = "pl";
 
     public MyAPIWeatherClient() {
     }
@@ -25,19 +26,20 @@ public class MyAPIWeatherClient implements WeatherClient{
         if (cityName.contains(" ")) {
             String newName;
             newName = cityName.replace(" ", "%20");
-            this.currentWeatherLink = "http://api.weatherapi.com/v1/current.json?key=" + Config.WEATHERAPI_KEY + "&q=" + newName + "&aqi=no";
+            this.currentWeatherLink = "http://api.weatherapi.com/v1/current.json?key=" + Config.WEATHERAPI_KEY + "&lang=" + language + "&q=" + newName + "&aqi=no";
         } else {
-            this.currentWeatherLink = "http://api.weatherapi.com/v1/current.json?key=" + Config.WEATHERAPI_KEY + "&q=" + cityName + "&aqi=no";
+            this.currentWeatherLink = "http://api.weatherapi.com/v1/current.json?key=" + Config.WEATHERAPI_KEY + "&lang=" + language + "&q=" + cityName + "&aqi=no";
         }
     }
 
     public void setFutureWeatherLink(String cityName) {
-        if (cityName.contains(" ")){
+        if (cityName.contains(" ")) {
             String newName;
             newName = cityName.replace(" ", "%20");
-            this.futureWeatherLink = "http://api.weatherapi.com/v1/forecast.json?key=" + Config.WEATHERAPI_KEY +"&q="+ newName + "&days=4&aqi=no&alerts=no";
+            this.futureWeatherLink = "http://api.weatherapi.com/v1/forecast.json?key=" + Config.WEATHERAPI_KEY + "&lang=" + language + "&q="+ newName + "&days=4&aqi=no&alerts=no";
+        } else {
+            this.futureWeatherLink = "http://api.weatherapi.com/v1/forecast.json?key=" + Config.WEATHERAPI_KEY + "&lang=" + language + "&q=" + cityName + "&days=4&aqi=no&alerts=no";
         }
-        this.futureWeatherLink = "http://api.weatherapi.com/v1/forecast.json?key=" + Config.WEATHERAPI_KEY +"&q="+ cityName + "&days=4&aqi=no&alerts=no";
     }
 
     public Weather getCurrentWeather(String cityName) throws ParseException {

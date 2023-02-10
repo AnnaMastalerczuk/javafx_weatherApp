@@ -64,20 +64,23 @@ public class NextWeatherViewController extends BaseController implements Initial
         
 //        currentCityName = "Gdansk";
 //        selectedCityName = "London";
+        System.out.println(currentCityName);
+        System.out.println(selectedCityName);
+        setWeather();
 
-        currentLocation.setText(currentCityName.toUpperCase());
-        selectedLocation.setText(selectedCityName.toUpperCase());
-
-        try {
-            weatherServiceCurrent = WeatherServiceFactory.createWeatherService();
-            weatherServiceSelected = WeatherServiceFactory.createWeatherService();
-            weatherListCurrentCity = weatherServiceCurrent.getFutureWeather(selectedCityName);
-            weatherListSelectedCity = weatherServiceSelected.getFutureWeather(selectedCityName);
-            displayWeather(weatherListCurrentCity);
-            displayWeather(weatherListSelectedCity);
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
+//        currentLocation.setText(currentCityName.toUpperCase());
+//        selectedLocation.setText(selectedCityName.toUpperCase());
+//
+//        try {
+//            weatherServiceCurrent = WeatherServiceFactory.createWeatherService();
+//            weatherServiceSelected = WeatherServiceFactory.createWeatherService();
+//            weatherListCurrentCity = weatherServiceCurrent.getFutureWeather(selectedCityName);
+//            weatherListSelectedCity = weatherServiceSelected.getFutureWeather(selectedCityName);
+//            displayWeather(weatherListCurrentCity);
+//            displayWeather(weatherListSelectedCity);
+//        } catch (ParseException e) {
+//            throw new RuntimeException(e);
+//        }
        
 //        weatherService = WeatherServiceFactory.createWeatherService();
 //        Weather weather = weatherService.getNextWeather("London");
@@ -90,6 +93,22 @@ public class NextWeatherViewController extends BaseController implements Initial
 //        }
 
 
+    }
+
+    private void setWeather() {
+        currentLocation.setText(currentCityName.toUpperCase());
+        selectedLocation.setText(selectedCityName.toUpperCase());
+
+        try {
+            weatherServiceCurrent = WeatherServiceFactory.createWeatherService();
+            weatherServiceSelected = WeatherServiceFactory.createWeatherService();
+            weatherListCurrentCity = weatherServiceCurrent.getFutureWeather(currentCityName);
+            weatherListSelectedCity = weatherServiceSelected.getFutureWeather(selectedCityName);
+            displayWeather(weatherListCurrentCity);
+            displayWeather(weatherListSelectedCity);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void displayWeather(List<Weather> weatherList) {

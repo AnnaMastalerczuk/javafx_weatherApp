@@ -170,6 +170,7 @@ public class MainViewController extends BaseController implements Initializable 
     void setCurrentLocationAction() {
             try {
                 currentCityName = currentLocationInput.getText();
+                System.out.println(currentCityName);
                 setCurrentLocationWeather();
             } catch (RuntimeException | ParseException e) {
                 anchorPaneCurrentWeatherCurrentLocation.setVisible(false);
@@ -191,6 +192,7 @@ public class MainViewController extends BaseController implements Initializable 
     void setSelectedLocationAction() {
         try {
             selectedCityName = selectedLocationInput.getText();
+            System.out.println(selectedCityName);
             setSelectedLocationWeather();
         } catch (RuntimeException | ParseException e) {
             anchorPaneCurrentWeatherSelectedLocation.setVisible(false);
