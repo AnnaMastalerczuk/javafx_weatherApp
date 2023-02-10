@@ -23,9 +23,7 @@ import org.json.simple.parser.ParseException;
 
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class MainViewController extends BaseController implements Initializable {
 
@@ -101,49 +99,100 @@ public class MainViewController extends BaseController implements Initializable 
     public MainViewController(String fxmlName) {
         super(fxmlName);
     }
-
-    @FXML
-    void checkWeatherNextDays(ActionEvent event) {
-        viewFactory.showNextWeatherView(currentCityName, selectedCityName);
-        Stage stage = (Stage) currentData.getScene().getWindow();
-        viewFactory.closeStage(stage);
-//        if (anchorPaneCurrentWeatherCurrentLocation.isVisible() && anchorPaneCurrentWeatherSelectedLocation.isVisible()){
-//            viewFactory.showNextWeatherView();
-//            stage = (Stage) currentData.getScene().getWindow();
-//            viewFactory.closeStage(stage);
-//        } else {
-//            alertCurrentLocation.setText("Podaj nazwę miejscowości");
-//            alertSelectedLocation.setText("Podaj nazwę miejscowości");
-//        }
+    public MainViewController(String fxmlName, String currentCityName, String selectedCityName) {
+        super(fxmlName);
+        this.currentCityName = currentCityName;
+        this.selectedCityName = selectedCityName;
     }
 
     @FXML
-    void setCurrentLocation(ActionEvent event) {
-        try{
-            currentCityName = currentLocationInput.getText();
-            anchorPaneCurrentWeatherCurrentLocation.setVisible(true);
-            alertCurrentLocation.setVisible(false);
-            weatherService = WeatherServiceFactory.createWeatherService();
-            Weather weather = weatherService.getCurrentWeather(currentLocationInput.getText());
-            displayCurrentWeather(weather);
-        } catch (RuntimeException | ParseException e){
-            anchorPaneCurrentWeatherCurrentLocation.setVisible(false);
-            alertCurrentLocation.setVisible(true);
-            alertCurrentLocation.setText("Błąd. Podaj nazwę jeszcze raz.");
-            e.printStackTrace();
+    void checkWeatherNextDays() {
+//        viewFactory.showNextWeatherView(currentCityName, selectedCityName);
+        Stage stage = (Stage) currentData.getScene().getWindow();
+//        viewFactory.closeStage(stage);
+        if (anchorPaneCurrentWeatherCurrentLocation.isVisible() && anchorPaneCurrentWeatherSelectedLocation.isVisible()){
+            viewFactory.showNextWeatherView(currentCityName, selectedCityName);
+            stage = (Stage) currentData.getScene().getWindow();
+            viewFactory.closeStage(stage);
+        } else {
+            alertCurrentLocation.setText("Podaj nazwę miejscowości");
+            alertSelectedLocation.setText("Podaj nazwę miejscowości");
         }
     }
 
-    @FXML
-    void setSelectedLocation(ActionEvent event) {
-        try{
-            selectedCityName = selectedLocationInput.getText();
-            anchorPaneCurrentWeatherSelectedLocation.setVisible(true);
-            alertSelectedLocation.setVisible(false);
+
+
+//    @FXML
+//    void setCurrentLocationAction() {
+//        try{
+//            currentCityName = currentLocationInput.getText();
+//            anchorPaneCurrentWeatherCurrentLocation.setVisible(true);
+//            alertCurrentLocation.setVisible(false);
+//            weatherService = WeatherServiceFactory.createWeatherService();
+//            Weather weather = weatherService.getCurrentWeather(currentCityName);
+//            displayCurrentWeather(weather);
+//        } catch (RuntimeException | ParseException e){
+//            anchorPaneCurrentWeatherCurrentLocation.setVisible(false);
+//            alertCurrentLocation.setVisible(true);
+//            alertCurrentLocation.setText("Błąd. Podaj nazwę jeszcze raz.");
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    private void setCurrentLocationWeather() throws ParseException {
+//        anchorPaneCurrentWeatherCurrentLocation.setVisible(true);
+//        alertCurrentLocation.setVisible(false);
+//        weatherService = WeatherServiceFactory.createWeatherService();
+//        Weather weather = weatherService.getCurrentWeather(currentCityName);
+//        displayCurrentWeather(weather);
+//    }
+
+
+//    @FXML
+//    void setSelectedLocationAction() {
+//        try{
+//            selectedCityName = selectedLocationInput.getText();
+//            anchorPaneCurrentWeatherSelectedLocation.setVisible(true);
+//            alertSelectedLocation.setVisible(false);
+//            weatherService = WeatherServiceFactory.createWeatherService();
+//            Weather weather = weatherService.getCurrentWeather(selectedCityName);
+//            displaySelectedWeather(weather);
+//        } catch (RuntimeException | ParseException e){
+//            anchorPaneCurrentWeatherSelectedLocation.setVisible(false);
+//            alertSelectedLocation.setVisible(true);
+//            alertSelectedLocation.setText("Błąd. Podaj nazwę jeszcze raz.");
+//            e.printStackTrace();
+//        }
+//    }
+
+
+        @FXML
+    void setCurrentLocationAction() {
+            try {
+                currentCityName = currentLocationInput.getText();
+                setCurrentLocationWeather();
+            } catch (RuntimeException | ParseException e) {
+                anchorPaneCurrentWeatherCurrentLocation.setVisible(false);
+                alertCurrentLocation.setVisible(true);
+                alertCurrentLocation.setText("Błąd. Podaj nazwę jeszcze raz.");
+                e.printStackTrace();
+            }
+        }
+
+        private void setCurrentLocationWeather() throws ParseException {
+            anchorPaneCurrentWeatherCurrentLocation.setVisible(true);
+            alertCurrentLocation.setVisible(false);
             weatherService = WeatherServiceFactory.createWeatherService();
-            Weather weather = weatherService.getCurrentWeather(selectedLocationInput.getText());
-            displaySelectedWeather(weather);
-        } catch (RuntimeException | ParseException e){
+            Weather weather = weatherService.getCurrentWeather(currentCityName);
+            displayCurrentWeather(weather);
+    }
+
+    @FXML
+    void setSelectedLocationAction() {
+        try {
+            selectedCityName = selectedLocationInput.getText();
+            setSelectedLocationWeather();
+        } catch (RuntimeException | ParseException e) {
             anchorPaneCurrentWeatherSelectedLocation.setVisible(false);
             alertSelectedLocation.setVisible(true);
             alertSelectedLocation.setText("Błąd. Podaj nazwę jeszcze raz.");
@@ -151,16 +200,37 @@ public class MainViewController extends BaseController implements Initializable 
         }
     }
 
+    private void setSelectedLocationWeather() throws ParseException {
+        anchorPaneCurrentWeatherSelectedLocation.setVisible(true);
+        alertSelectedLocation.setVisible(false);
+        weatherService = WeatherServiceFactory.createWeatherService();
+        Weather weather = weatherService.getCurrentWeather(selectedCityName);
+        displaySelectedWeather(weather);
+    }
+
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println(currentCityName);
         anchorPaneCurrentWeatherCurrentLocation.setVisible(false);
         anchorPaneCurrentWeatherSelectedLocation.setVisible(false);
         alertCurrentLocation.setText("Podaj bieżącą lokalizację");
         alertSelectedLocation.setText("Podaj docelową lokalizację");
 
+        if (currentCityName != null && selectedCityName != null) {
+            try {
+                setCurrentLocationWeather();
+                setSelectedLocationWeather();
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
         dateService = new DateService();
         currentData.setText(dateService.setCurrentDate());
         System.out.println(dateService.setCurrentDate());
+
 
 //        try {
 //            JSONConverter jsonConverter = new JSONConverter();

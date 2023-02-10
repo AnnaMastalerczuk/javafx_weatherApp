@@ -53,7 +53,7 @@ public class NextWeatherViewController extends BaseController implements Initial
 
     @FXML
     void returnToMainView() {
-        viewFactory.showMainView();
+        viewFactory.showMainView(currentCityName, selectedCityName);
         Stage stage = (Stage) currentLocation.getScene().getWindow();
         viewFactory.closeStage(stage);
     }

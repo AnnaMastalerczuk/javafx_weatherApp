@@ -14,15 +14,16 @@ import java.io.IOException;
 public class ViewFactory {
 
     public void showMainView() {
-        System.out.println("main window");
-
         BaseController controller = new MainViewController("MainView.fxml");
         initializeStage(controller);
     }
 
-    public void showNextWeatherView(String currentCityName, String selectedCityName) {
-        System.out.println("next weather window");
+    public void showMainView(String currentCityName, String selectedCityName) {
+        BaseController controller = new MainViewController("MainView.fxml", currentCityName, selectedCityName);
+        initializeStage(controller);
+    }
 
+    public void showNextWeatherView(String currentCityName, String selectedCityName) {
         BaseController controller = new NextWeatherViewController("NextWeatherView.fxml", currentCityName, selectedCityName);
         initializeStage(controller);
     }
@@ -49,4 +50,5 @@ public class ViewFactory {
     public void closeStage(Stage stage){
         stage.close();
     }
+
 }

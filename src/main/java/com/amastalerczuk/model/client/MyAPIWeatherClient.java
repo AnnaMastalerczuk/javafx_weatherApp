@@ -70,8 +70,8 @@ public class MyAPIWeatherClient implements WeatherClient{
         double pressure = (double) jsonObjectCurrentWeather.get("pressure_mb");
         String iconLink = "http:" + (String) jsonObjectIcon.get("icon");
         String description = (String) jsonObjectIcon.get("text");
-        System.out.println(iconLink);
-        System.out.println(description);
+//        System.out.println(iconLink);
+//        System.out.println(description);
 
         return new Weather(cityName, temp, humidity, wind, pressure, description, iconLink);
     }

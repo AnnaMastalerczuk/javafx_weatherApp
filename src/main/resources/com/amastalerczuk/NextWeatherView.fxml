@@ -10,13 +10,13 @@
       <Label layoutX="440.0" layoutY="25.0" text="Weather App" />
       <Button layoutX="448.0" layoutY="387.0" mnemonicParsing="false" onAction="#returnToMainView" text="Powrót" />
       <HBox fx:id="hboxFutureWeather" layoutY="80.0" prefHeight="300.0" prefWidth="950.0" />
-      <AnchorPane layoutX="99.0" layoutY="43.0">
+      <AnchorPane layoutY="61.0" prefHeight="18.0" prefWidth="155.0">
          <children>
             <Label prefHeight="18.0" prefWidth="105.0" text="Lokalizacja obecna:" />
             <Label fx:id="currentLocation" layoutX="106.0" prefHeight="18.0" prefWidth="54.0" text="Gdańsk" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="644.0" layoutY="43.0">
+      <AnchorPane layoutX="502.0" layoutY="61.0" prefHeight="18.0" prefWidth="450.0">
          <children>
             <Label prefHeight="18.0" prefWidth="115.0" text="Lokalizacja wybrana:" />
             <Label fx:id="selectedLocation" layoutX="115.0" text="Gdańsk" />

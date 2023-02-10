@@ -26,38 +26,37 @@ public class DateService {
 
         switch (dayName) {
             case "MONDAY": {
-                name = "Poniedziałek";
+                name = "PON";
                 break;
             }
             case "TUESDAY": {
-                name = "Wtorek";
+                name = "WT";
                 break;
             }
             case "WEDNESDAY": {
-                name = "Środa";
+                name = "ŚR";
                 break;
             }
             case "THURSDAY": {
-                name = "Czwartek";
+                name = "CZW";
                 break;
             }
             case "FRIDAY": {
-                name = "Piątek";
+                name = "PT";
                 break;
             }
             case "SATURDAY": {
-                name = "Sobota";
+                name = "SOB";
                 break;
             }
             case "SUNDAY": {
-                name = "Niedziela";
+                name = "NDZ";
                 break;
             }
             default: {
                 break;
             }
         }
-
         return name;
     }
 

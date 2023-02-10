@@ -30,7 +30,7 @@ public class APIConnector {
 
     public String fetchDataFromAPI(String urlString){
         this.urlString = urlString;
-        System.out.println(urlString);
+//        System.out.println(urlString);
         try {
             URL url = new URL(urlString);
             connection = (HttpURLConnection) url.openConnection();
