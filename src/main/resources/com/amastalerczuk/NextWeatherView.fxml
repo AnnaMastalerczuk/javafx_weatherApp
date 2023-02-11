@@ -7,20 +7,22 @@
 
 <AnchorPane prefHeight="450.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="440.0" layoutY="25.0" text="Weather App" />
-      <Button layoutX="448.0" layoutY="387.0" mnemonicParsing="false" onAction="#returnToMainView" text="Powrót" />
-      <HBox fx:id="hboxFutureWeather" layoutY="80.0" prefHeight="300.0" prefWidth="950.0" />
-      <AnchorPane layoutY="61.0" prefHeight="18.0" prefWidth="155.0">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="25.0" prefHeight="18.0" prefWidth="956.0" styleClass="mainTitle" text="Weather App" textAlignment="CENTER" />
+      <Button layoutX="451.0" layoutY="369.0" mnemonicParsing="false" onAction="#returnToMainView" text="Powrót" />
+      <HBox fx:id="hboxFutureWeather" alignment="CENTER" layoutX="5.0" layoutY="119.0" prefHeight="250.0" prefWidth="950.0" />
+      <HBox layoutX="5.0" layoutY="82.0" prefHeight="35.0" prefWidth="950.0">
          <children>
-            <Label prefHeight="18.0" prefWidth="105.0" text="Lokalizacja obecna:" />
-            <Label fx:id="currentLocation" layoutX="106.0" prefHeight="18.0" prefWidth="54.0" text="Gdańsk" />
+            <AnchorPane prefHeight="35.0" prefWidth="475.0">
+               <children>
+                  <Label fx:id="currentLocation" alignment="CENTER" contentDisplay="CENTER" layoutY="8.0" prefHeight="18.0" prefWidth="476.0" styleClass="title" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="35.0" prefWidth="475.0">
+               <children>
+                  <Label fx:id="selectedLocation" alignment="CENTER" layoutY="8.0" prefHeight="18.0" prefWidth="475.0" styleClass="title" />
+               </children>
+            </AnchorPane>
          </children>
-      </AnchorPane>
-      <AnchorPane layoutX="502.0" layoutY="61.0" prefHeight="18.0" prefWidth="450.0">
-         <children>
-            <Label prefHeight="18.0" prefWidth="115.0" text="Lokalizacja wybrana:" />
-            <Label fx:id="selectedLocation" layoutX="115.0" text="Gdańsk" />
-         </children>
-      </AnchorPane>
+      </HBox>
    </children>
 </AnchorPane>

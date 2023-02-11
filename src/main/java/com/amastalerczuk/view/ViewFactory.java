@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class ViewFactory {
 
@@ -41,9 +42,14 @@ public class ViewFactory {
             return;
         }
 
+
         Scene scene = new Scene(parent);
         Stage stage = new Stage();
+
+//        scene.getStylesheets().add(getClass().getResource("css/style.css").toExternalForm());
+        scene.getStylesheets().add(Objects.requireNonNull(App.class.getResource("css/style.css")).toExternalForm());
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 

@@ -10,6 +10,8 @@ import com.amastalerczuk.view.ViewFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,6 +22,7 @@ import org.json.simple.parser.ParseException;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.attribute.PosixFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -66,6 +69,7 @@ public class NextWeatherViewController extends BaseController implements Initial
 //        selectedCityName = "London";
         System.out.println(currentCityName);
         System.out.println(selectedCityName);
+
         setWeather();
 
 //        currentLocation.setText(currentCityName.toUpperCase());
@@ -113,9 +117,15 @@ public class NextWeatherViewController extends BaseController implements Initial
 
     private void displayWeather(List<Weather> weatherList) {
 //        currentLocation.setText(weatherList.get(0).getCityName());
+        HBox hboxForVbox = new HBox();
+        hboxForVbox.setAlignment(Pos.CENTER);
+        hboxForVbox.setPrefWidth(475);
+        hboxForVbox.setPrefHeight(300);
+
 
         for (int i = 0; i < weatherList.size(); i++){
             VBox vbox = new VBox();
+            vbox.setPadding(new Insets(10));
 
             Image iconWeather = new Image(weatherList.get(i).getIconLink());
             Label date = new Label(setDates(i));
@@ -133,8 +143,11 @@ public class NextWeatherViewController extends BaseController implements Initial
             vbox.getChildren().add(wind);
 //            vbox.getChildren().add(totalPrecip);
 //            vbox.getChildren().add(totalSnow);
-            hboxFutureWeather.getChildren().add(vbox);
+            hboxForVbox.getChildren().add(vbox);
         }
+
+        hboxFutureWeather.getChildren().add(hboxForVbox);
+
     }
 
     private String setDates(int i) {

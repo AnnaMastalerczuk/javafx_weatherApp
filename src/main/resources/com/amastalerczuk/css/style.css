@@ -1,0 +1,57 @@
+.root {
+
+	-fx-border-color: #583101;
+	-fx-background-image: url('img/clouds3.png');
+	-fx-font-size: 13;
+}
+
+.label {
+    -fx-text-fill: #583101;
+}
+
+.button {
+
+	-fx-text-fill: white;
+	-fx-background-color: #8b5e34;
+	-fx-background-radius: 5px;
+}
+
+.button:hover {
+
+	-fx-cursor: hand;
+	-fx-background-color: #6f4518;
+	-fx-background-radius: 8px;
+	-fx-font-weight:800;
+}
+
+.text-field {
+    -fx-text-fill: #583101;
+	-fx-background-radius: 5px;
+}
+
+.text-field:focused {
+	-fx-background-color: #fefcfb;
+	-fx-border-color: #583101;
+	-fx-border-radius: 5px;
+}
+
+.backgroundPane{
+
+		-fx-border-radius: 50px;
+}
+
+.title{
+    -fx-font-size: 15;
+    -fx-font-weight:800;
+}
+
+.mainTitle{
+    -fx-font-size: 18;
+    -fx-font-weight:800;
+}
+
+.alert{
+    -fx-text-fill: #d1495b;
+    -fx-font-size: 14;
+}
+
