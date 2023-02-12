@@ -12,10 +12,6 @@ public class WeatherService {
         this.weatherClient = weatherClient;
     }
 
-//    public Weather getWeather(String cityName){
-//        return weatherClient.getWeather(cityName);
-//    }
-
         public Weather getCurrentWeather(String cityName) throws ParseException {
         return weatherClient.getCurrentWeather(cityName);
     }

@@ -41,12 +41,9 @@ public class ViewFactory {
             e.printStackTrace();
             return;
         }
-
-
         Scene scene = new Scene(parent);
         Stage stage = new Stage();
 
-//        scene.getStylesheets().add(getClass().getResource("css/style.css").toExternalForm());
         scene.getStylesheets().add(Objects.requireNonNull(App.class.getResource("css/style.css")).toExternalForm());
         stage.setScene(scene);
         stage.setResizable(false);

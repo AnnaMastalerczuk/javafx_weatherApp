@@ -9,7 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.json.simple.parser.ParseException;
+
 
 import java.io.IOException;
 
@@ -24,7 +24,6 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
 
         ViewFactory viewFactory = new ViewFactory();
-
         viewFactory.showMainView();
     }
 

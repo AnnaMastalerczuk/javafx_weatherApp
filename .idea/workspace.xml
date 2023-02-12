@@ -6,10 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="50a7cec4-0773-4ade-ac48-316fbf904895" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/PrimaryController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/SecondaryController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/controller/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/controller/MainViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/controller/NextWeatherViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/controller/NextWeatherViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/Weather.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/WeatherService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/WeatherService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/WeatherServiceFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/WeatherServiceFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/view/ViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/view/ViewFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/amastalerczuk/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/amastalerczuk/MainView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/amastalerczuk/NextWeatherView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/amastalerczuk/NextWeatherView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/amastalerczuk/primary.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/amastalerczuk/secondary.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
