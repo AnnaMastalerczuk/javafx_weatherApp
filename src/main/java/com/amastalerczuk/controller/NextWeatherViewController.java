@@ -78,12 +78,10 @@ public class NextWeatherViewController extends BaseController implements Initial
     }
 
     private void displayWeather(List<Weather> weatherList) {
-//        currentLocation.setText(weatherList.get(0).getCityName());
         HBox hboxForVbox = new HBox();
         hboxForVbox.setAlignment(Pos.CENTER);
         hboxForVbox.setPrefWidth(475);
         hboxForVbox.setPrefHeight(300);
-
 
         for (int i = 0; i < weatherList.size(); i++){
             VBox vbox = new VBox();

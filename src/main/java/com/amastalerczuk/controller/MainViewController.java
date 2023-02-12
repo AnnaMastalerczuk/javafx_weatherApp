@@ -5,6 +5,7 @@ import com.amastalerczuk.model.DateService;
 import com.amastalerczuk.model.Weather;
 import com.amastalerczuk.model.WeatherService;
 import com.amastalerczuk.model.WeatherServiceFactory;
+import com.amastalerczuk.model.readers.CityJsonReader;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -14,10 +15,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import org.controlsfx.control.textfield.AutoCompletionBinding;
+import org.controlsfx.control.textfield.TextFields;
 import org.json.simple.parser.ParseException;
 
 
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.*;
 
@@ -28,7 +30,6 @@ public class MainViewController extends BaseController implements Initializable 
     private Map<String, Integer> citiesMap;
     private String currentCityName;
     private String selectedCityName;
-
     @FXML
     private AnchorPane anchorPaneCurrentWeatherCurrentLocation;
 
@@ -103,10 +104,6 @@ public class MainViewController extends BaseController implements Initializable 
 
     @FXML
     void checkWeatherNextDays() {
-//        viewFactory.showNextWeatherView(currentCityName, selectedCityName);
-//        Stage stage = (Stage) currentData.getScene().getWindow();
-//        viewFactory.closeStage(stage);
-
         if (anchorPaneCurrentWeatherCurrentLocation.isVisible() && anchorPaneCurrentWeatherSelectedLocation.isVisible()){
             viewFactory.showNextWeatherView(currentCityName, selectedCityName);
             Stage stage = (Stage) currentData.getScene().getWindow();
@@ -178,11 +175,25 @@ public class MainViewController extends BaseController implements Initializable 
                 throw new RuntimeException(e);
             }
         }
-
         dateService = new DateService();
         currentData.setText(dateService.setCurrentDate());
-        System.out.println(dateService.setCurrentDate());
 
+        // autocompletion
+//        setCitiesInAutoCompletion();
+    }
+
+    private void setCitiesInAutoCompletion() {
+        CityJsonReader reader = new CityJsonReader();
+        Map<String, Integer> citiesMap = new TreeMap<>();
+
+        try {
+            String[] words = {"aaabbb", "abcd", "aasdfg"};
+            citiesMap = reader.getCitiesMapFromJSON(Config.CITY_LIST_WITH_DATA);
+            TextFields.bindAutoCompletion(currentLocationInput, words);
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void displayCurrentWeather(Weather weather) {

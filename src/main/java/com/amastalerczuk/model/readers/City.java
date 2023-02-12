@@ -3,9 +3,9 @@ package com.amastalerczuk.model.readers;
 public class City {
     public String cityName;
     public String countryName;
-    public Integer cityId;
+    public Long cityId;
 
-    public City(String cityName, String countryName, Integer cityId) {
+    public City(String cityName, String countryName, Long cityId) {
         this.cityName = cityName;
         this.countryName = countryName;
         this.cityId = cityId;
@@ -27,11 +27,11 @@ public class City {
         this.countryName = countryName;
     }
 
-    public Integer getCityId() {
+    public Long getCityId() {
         return cityId;
     }
 
-    public void setCityId(Integer cityId) {
+    public void setCityId(Long cityId) {
         this.cityId = cityId;
     }
 }

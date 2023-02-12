@@ -1,16 +1,11 @@
 package com.amastalerczuk;
 
-import com.amastalerczuk.model.Weather;
-import com.amastalerczuk.model.client.APIConnector;
-import com.amastalerczuk.model.client.MyAPIWeatherClient;
 import com.amastalerczuk.view.ViewFactory;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-
 import java.io.IOException;
 
 /**

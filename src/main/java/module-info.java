@@ -11,10 +11,6 @@ module com.amastalerczuk {
     opens com.amastalerczuk.view to javafx.fxml;
     opens com.amastalerczuk.model to javafx.fxml;
 
-//    opens com.amastalerczuk.model.client to javafx.fxml;
-//    opens com.amastalerczuk.model.readers to javafx.fxml;
-//    opens com.amastalerczuk.config to javafx.fxml;
-
     exports com.amastalerczuk;
     exports com.amastalerczuk.controller;
     exports com.amastalerczuk.view;

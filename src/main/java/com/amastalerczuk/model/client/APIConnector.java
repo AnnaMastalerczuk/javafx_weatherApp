@@ -22,15 +22,11 @@ public class APIConnector {
     private HttpURLConnection connection;
 
 
-//    public APIConnector(String urlString) throws MalformedURLException {
-//        this.urlString = urlString;
-//    }
     public APIConnector() {
     }
 
     public String fetchDataFromAPI(String urlString){
         this.urlString = urlString;
-//        System.out.println(urlString);
         try {
             URL url = new URL(urlString);
             connection = (HttpURLConnection) url.openConnection();
@@ -49,9 +45,6 @@ public class APIConnector {
                 }
                 reader.close();
             }
-//            System.out.println(responseContent.toString());
-//            parse(responseContent.toString());
-
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -77,70 +70,4 @@ public class APIConnector {
         return null;
     }
 
-//    public JSONArray getJSONArray(){
-//        try {
-//            URL url = new URL(urlString);
-//
-//            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-//            conn.setRequestMethod("GET");
-//            conn.connect();
-//
-//            //Check if connect is made
-//            int responseCode = conn.getResponseCode();
-//
-//            if (responseCode != 200) {
-//                throw new RuntimeException("HttpResponseCode: " + responseCode);
-//            } else {
-//
-//                StringBuilder informationString = new StringBuilder();
-//                Scanner scanner = new Scanner(url.openStream());
-//
-//                while (scanner.hasNext()) {
-//                    informationString.append(scanner.nextLine());
-//                }
-//                scanner.close();
-//
-//                JSONParser parse = new JSONParser();
-//
-//                return (JSONArray) parse.parse(String.valueOf(informationString));
-//            }
-//        }catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
-//
-//    public JSONObject getJSONObject(){
-//        try {
-//            URL url = new URL(urlString);
-//
-//            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-//            conn.setRequestMethod("GET");
-//            conn.connect();
-//
-//            //Check if connect is made
-//            int responseCode = conn.getResponseCode();
-//
-//            if (responseCode != 200) {
-//                throw new RuntimeException("HttpResponseCode: " + responseCode);
-//            } else {
-//
-//                StringBuilder informationString = new StringBuilder();
-//                Scanner scanner = new Scanner(url.openStream());
-//
-//                while (scanner.hasNext()) {
-//                    informationString.append(scanner.nextLine());
-//                }
-//                scanner.close();
-//
-//                JSONParser parse = new JSONParser();
-////                System.out.println(informationString);
-//
-//                return (JSONObject) parse.parse(String.valueOf(informationString));
-//            }
-//        }catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
 }
