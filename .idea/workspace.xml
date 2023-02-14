@@ -5,20 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50a7cec4-0773-4ade-ac48-316fbf904895" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/readers/CityJsonReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/StarterApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/config/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/controller/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/controller/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/controller/NextWeatherViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/controller/NextWeatherViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/client/APIConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/client/APIConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/client/WeatherClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/client/WeatherClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/readers/AutoCompleteTextField.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/readers/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/readers/City.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/readers/JSONConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/view/ViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/view/ViewFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,18 +42,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Ania/Z dysku H/KURS PROGRAMOWANIA/JAVAFX/przyklady z gita/MeteoMateo_Java-master&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "D:/Ania/Z dysku H/KURS PROGRAMOWANIA/JAVAFX/przyklady z gita/MeteoMateo_Java-master",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.kotlinCompiler"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.amastalerczuk.App" />
