@@ -12,6 +12,7 @@ public class Weather {
     private String iconLink;
     private double totalPrecip;
     private double totalSnow;
+    private String date;
 
     public Weather(String cityName, double temperature, double humidity, double wind, double pressure, String weatherDescription, String iconLink) {
         this.cityName = cityName;
@@ -23,7 +24,8 @@ public class Weather {
         this.iconLink = iconLink;
     }
 
-    public Weather(String cityName, String weatherDescription, String iconLink, double tempMax, double tempMin, double humidity, double wind, double totalPrecip, double totalSnow){
+    public Weather(String date, String cityName, String weatherDescription, String iconLink, double tempMax, double tempMin, double humidity, double wind, double totalPrecip, double totalSnow){
+        this.date = date;
         this.cityName = cityName;
         this.tempMax = tempMax;
         this.tempMin = tempMin;
@@ -62,21 +64,14 @@ public class Weather {
     public double getPressure() {
         return pressure;
     }
-
-    public double getTotalPrecip() {
-        return totalPrecip;
-    }
-
-    public double getTotalSnow() {
-        return totalSnow;
+    public String getDate() {
+        return date;
     }
 
     public String getWeatherDescription() {
         return weatherDescription;
-
     }
     public String getIconLink(){
         return iconLink;
     }
-
 }

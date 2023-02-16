@@ -11,24 +11,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyAPIWeatherClient implements WeatherClient{
-    private APIConnector apiConnector = new APIConnector();
-    private List<Weather> weatherForecastList = new ArrayList<>();
+    private APIConnector apiConnector;
     private String datasFromApi;
     private String cityName;
     private String futureWeatherLink;
     private String currentWeatherLink;
-    private String language = "pl";
 
     public MyAPIWeatherClient() {
+        apiConnector = new APIConnector();
     }
 
     public void setCurrentWeatherLink(String cityName) {
         if (cityName.contains(" ")) {
             String newName;
             newName = cityName.replace(" ", "%20");
-            this.currentWeatherLink = "http://api.weatherapi.com/v1/current.json?key=" + Config.WEATHERAPI_KEY + "&lang=" + language + "&q=" + newName + "&aqi=no";
+            this.currentWeatherLink = InfoApi.linkCurrentWeatherString + Config.WEATHERAPI_KEY + "&lang=" + InfoApi.language + "&q=" + newName + "&aqi=no";
         } else {
-            this.currentWeatherLink = "http://api.weatherapi.com/v1/current.json?key=" + Config.WEATHERAPI_KEY + "&lang=" + language + "&q=" + cityName + "&aqi=no";
+            this.currentWeatherLink = InfoApi.linkCurrentWeatherString + Config.WEATHERAPI_KEY + "&lang=" + InfoApi.language + "&q=" + cityName + "&aqi=no";
         }
     }
 
@@ -36,9 +35,9 @@ public class MyAPIWeatherClient implements WeatherClient{
         if (cityName.contains(" ")) {
             String newName;
             newName = cityName.replace(" ", "%20");
-            this.futureWeatherLink = "http://api.weatherapi.com/v1/forecast.json?key=" + Config.WEATHERAPI_KEY + "&lang=" + language + "&q="+ newName + "&days=4&aqi=no&alerts=no";
+            this.futureWeatherLink = InfoApi.linkFutureWeatherString + Config.WEATHERAPI_KEY + "&lang=" + InfoApi.language + "&q="+ newName + "&days=" + InfoApi.daysNumber + "&aqi=no&alerts=no";
         } else {
-            this.futureWeatherLink = "http://api.weatherapi.com/v1/forecast.json?key=" + Config.WEATHERAPI_KEY + "&lang=" + language + "&q=" + cityName + "&days=4&aqi=no&alerts=no";
+            this.futureWeatherLink = InfoApi.linkFutureWeatherString + Config.WEATHERAPI_KEY + "&lang=" + InfoApi.language + "&q=" + cityName + "&days=" + InfoApi.daysNumber + "&aqi=no&alerts=no";
         }
     }
 
@@ -58,11 +57,8 @@ public class MyAPIWeatherClient implements WeatherClient{
 
     public Weather parseCurrentWeather(String responseBody) throws ParseException {
         JSONParser jsonParser = new JSONParser();
-        // java obj
         Object javaObject = jsonParser.parse(responseBody);
-        // convert to json obj
         JSONObject jsonObject = (JSONObject) javaObject;
-        // extract datas
         JSONObject jsonObjectCurrentWeather = (JSONObject) jsonObject.get("current");
         JSONObject jsonObjectIcon = (JSONObject) jsonObjectCurrentWeather.get("condition");
 
@@ -70,29 +66,25 @@ public class MyAPIWeatherClient implements WeatherClient{
         long humidity = (long) jsonObjectCurrentWeather.get("humidity");
         double wind = (double) jsonObjectCurrentWeather.get("wind_kph");
         double pressure = (double) jsonObjectCurrentWeather.get("pressure_mb");
-        String iconLink = "http:" + (String) jsonObjectIcon.get("icon");
+        String iconLink = "http:" + jsonObjectIcon.get("icon");
         String description = (String) jsonObjectIcon.get("text");
-//        System.out.println(iconLink);
-//        System.out.println(description);
 
         return new Weather(cityName, temp, humidity, wind, pressure, description, iconLink);
     }
 
     public List<Weather> parseNextWeather(String responseBody) throws ParseException {
+        List<Weather> weatherForecastList = new ArrayList<>();
 
         JSONParser jsonParser = new JSONParser();
-        // java obj
         Object javaObject = jsonParser.parse(responseBody);
-        // convert to json obj
         JSONObject jsonObject = (JSONObject) javaObject;
-        // extract datas
         JSONObject jsonObjectFutureWeather = (JSONObject) jsonObject.get("forecast");
-//        JSONObject jsonObjectForecast = (JSONObject) jsonObjectFutureWeather.get("forecastday");
         JSONArray forecastArray = (JSONArray) jsonObjectFutureWeather.get("forecastday");
 
-        for (int i = 0; i < forecastArray.size(); i ++){
+        for (int i = 1; i < forecastArray.size(); i ++){
             JSONObject weatherForecastObj = (JSONObject) forecastArray.get(i);
             JSONObject forecastDatas = (JSONObject) weatherForecastObj.get("day");
+            String date = (String) weatherForecastObj.get("date");
             double tempMax = (double) forecastDatas.get("maxtemp_c");
             double tempMin = (double) forecastDatas.get("mintemp_c");
             double humidity = (double) forecastDatas.get("avghumidity");
@@ -104,16 +96,9 @@ public class MyAPIWeatherClient implements WeatherClient{
             String iconLink = "http:" + (String) conditions.get("icon");
             String description = (String) conditions.get("text");
 
-            Weather weather = new Weather(cityName, description, iconLink, tempMax, tempMin, humidity, wind, totalPrecip, totalsnow);
+            Weather weather = new Weather(date, cityName, description, iconLink, tempMax, tempMin, humidity, wind, totalPrecip, totalsnow);
             weatherForecastList.add(weather);
-//            System.out.println(tempMax);
-//            System.out.println(tempMin);
-//            System.out.println(humidity);
-//            System.out.println(wind);
-//            System.out.println(iconLink);
-//            System.out.println(description);
         }
-
         return weatherForecastList;
     }
 }

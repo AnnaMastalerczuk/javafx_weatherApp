@@ -3,7 +3,6 @@ package com.amastalerczuk.view;
 import com.amastalerczuk.App;
 import com.amastalerczuk.controller.BaseController;
 import com.amastalerczuk.controller.MainViewController;
-import com.amastalerczuk.controller.NextWeatherViewController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,16 +15,6 @@ public class ViewFactory {
 
     public void showMainView() {
         BaseController controller = new MainViewController("MainView.fxml");
-        initializeStage(controller);
-    }
-
-    public void showMainView(String currentCityName, String selectedCityName) {
-        BaseController controller = new MainViewController("MainView.fxml", currentCityName, selectedCityName);
-        initializeStage(controller);
-    }
-
-    public void showNextWeatherView(String currentCityName, String selectedCityName) {
-        BaseController controller = new NextWeatherViewController("NextWeatherView.fxml", currentCityName, selectedCityName);
         initializeStage(controller);
     }
 
