@@ -16,6 +16,5 @@ module com.amastalerczuk {
     exports com.amastalerczuk.view;
     exports com.amastalerczuk.model;
     exports com.amastalerczuk.model.client;
-    exports com.amastalerczuk.model.readers;
     exports com.amastalerczuk.config;
 }

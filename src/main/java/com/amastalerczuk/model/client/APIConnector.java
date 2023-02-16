@@ -1,18 +1,11 @@
 package com.amastalerczuk.model.client;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Objects;
-import java.util.Scanner;
 
 public class APIConnector {
     private String urlString;
@@ -20,7 +13,6 @@ public class APIConnector {
     private String line;
     private StringBuffer responseContent = new StringBuffer();
     private HttpURLConnection connection;
-
 
     public APIConnector() {
     }
@@ -53,21 +45,6 @@ public class APIConnector {
             connection.disconnect();
         }
         return responseContent.toString();
-    }
-
-    public String parse(String responseBody) throws ParseException {
-        JSONParser jsonParser = new JSONParser();
-        // java obj
-        Object obj = jsonParser.parse(responseBody);
-        // convert to json obj
-        JSONObject empjsonobj = (JSONObject) obj;
-        // extract datas
-        JSONObject obj2 = (JSONObject) empjsonobj.get("current");
-        String name = (String) obj2.get("last_updated");
-        double temp = (double) obj2.get("temp_c");
-        System.out.println(name);
-        System.out.println(temp);
-        return null;
     }
 
 }
