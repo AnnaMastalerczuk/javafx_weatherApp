@@ -5,30 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50a7cec4-0773-4ade-ac48-316fbf904895" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/controller/NestedViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/client/InfoApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/amastalerczuk/NestedView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/config/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/controller/BaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/controller/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/controller/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/controller/NextWeatherViewController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/DateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/DateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/Weather.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/WeatherService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/WeatherService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/WeatherServiceFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/WeatherServiceFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/client/APIConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/client/APIConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/client/MyAPIWeatherClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/client/MyAPIWeatherClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/client/MyWeatherClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/readers/City.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/readers/CityJsonReader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/view/ViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/view/ViewFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/amastalerczuk/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/amastalerczuk/MainView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/amastalerczuk/NextWeatherView.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/amastalerczuk/cities/city.list.min.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,18 +40,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "D:/Ania/Z dysku H/KURS PROGRAMOWANIA/JAVAFX/przyklady z gita/MeteoMateo_Java-master",
-    "project.structure.last.edited": "Global Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.kotlinCompiler"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Ania/Z dysku H/KURS PROGRAMOWANIA/JAVAFX/przyklady z gita/MeteoMateo_Java-master&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.kotlinCompiler&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="11" />
