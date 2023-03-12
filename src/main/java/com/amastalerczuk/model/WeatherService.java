@@ -10,10 +10,18 @@ public class WeatherService {
     public WeatherService(WeatherClient weatherClient) {
         this.weatherClient = weatherClient;
     }
-    public Weather getCurrentWeather(String cityName) throws ParseException {
-        return weatherClient.getCurrentWeather(cityName);
+    public Weather getCurrentWeather(String cityName){
+        try {
+            return weatherClient.getCurrentWeather(cityName);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
-    public List<Weather> getFutureWeather(String cityName) throws ParseException {
-        return weatherClient.getFutureWeather(cityName);
+    public List<Weather> getFutureWeather(String cityName){
+        try {
+            return weatherClient.getFutureWeather(cityName);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
