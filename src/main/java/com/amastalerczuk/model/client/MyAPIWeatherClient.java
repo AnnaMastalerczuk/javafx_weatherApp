@@ -14,43 +14,45 @@ public class MyAPIWeatherClient implements WeatherClient{
     private APIConnector apiConnector;
     private String datasFromApi;
     private String cityName;
-    private String futureWeatherLink;
-    private String currentWeatherLink;
 
-    public MyAPIWeatherClient() {
-        apiConnector = new APIConnector();
+    public MyAPIWeatherClient(APIConnector apiConnector) {
+        this.apiConnector = apiConnector;
     }
 
-    public void setCurrentWeatherLink(String cityName) {
+    public String setCurrentWeatherLink(String cityName) {
+        String link;
         if (cityName.contains(" ")) {
             String newName;
             newName = cityName.replace(" ", "%20");
-            this.currentWeatherLink = InfoApi.linkCurrentWeatherString + Config.WEATHERAPI_KEY + "&lang=" + InfoApi.language + "&q=" + newName + "&aqi=no";
+            link = InfoApi.linkCurrentWeatherString + Config.WEATHERAPI_KEY + "&lang=" + InfoApi.language + "&q=" + newName + "&aqi=no";
         } else {
-            this.currentWeatherLink = InfoApi.linkCurrentWeatherString + Config.WEATHERAPI_KEY + "&lang=" + InfoApi.language + "&q=" + cityName + "&aqi=no";
+            link = InfoApi.linkCurrentWeatherString + Config.WEATHERAPI_KEY + "&lang=" + InfoApi.language + "&q=" + cityName + "&aqi=no";
         }
+        return link;
     }
 
-    public void setFutureWeatherLink(String cityName) {
+    public String setFutureWeatherLink(String cityName) {
+        String link;
         if (cityName.contains(" ")) {
             String newName;
             newName = cityName.replace(" ", "%20");
-            this.futureWeatherLink = InfoApi.linkFutureWeatherString + Config.WEATHERAPI_KEY + "&lang=" + InfoApi.language + "&q="+ newName + "&days=" + InfoApi.daysNumber + "&aqi=no&alerts=no";
+            link = InfoApi.linkFutureWeatherString + Config.WEATHERAPI_KEY + "&lang=" + InfoApi.language + "&q="+ newName + "&days=" + InfoApi.daysNumber + "&aqi=no&alerts=no";
         } else {
-            this.futureWeatherLink = InfoApi.linkFutureWeatherString + Config.WEATHERAPI_KEY + "&lang=" + InfoApi.language + "&q=" + cityName + "&days=" + InfoApi.daysNumber + "&aqi=no&alerts=no";
+            link = InfoApi.linkFutureWeatherString + Config.WEATHERAPI_KEY + "&lang=" + InfoApi.language + "&q=" + cityName + "&days=" + InfoApi.daysNumber + "&aqi=no&alerts=no";
         }
+        return link;
     }
 
     public Weather getCurrentWeather(String cityName) throws ParseException {
         this.cityName = cityName;
-        setCurrentWeatherLink(cityName);
+        String currentWeatherLink = setCurrentWeatherLink(cityName);
         datasFromApi = apiConnector.fetchDataFromAPI(currentWeatherLink);
         return parseCurrentWeather(datasFromApi);
     }
 
     public List<Weather> getFutureWeather(String cityName) throws ParseException {
         this.cityName = cityName;
-        setFutureWeatherLink(cityName);
+        String futureWeatherLink = setFutureWeatherLink(cityName);
         datasFromApi = apiConnector.fetchDataFromAPI(futureWeatherLink);
         return parseNextWeather(datasFromApi);
     }

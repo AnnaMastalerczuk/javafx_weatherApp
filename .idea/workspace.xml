@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50a7cec4-0773-4ade-ac48-316fbf904895" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/amastalerczuk/model/DateServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/amastalerczuk/model/MyAPIWeatherClientStub.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/amastalerczuk/model/WeatherServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/amastalerczuk/model/client/MyAPIWeatherClientTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/WeatherService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/WeatherService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/WeatherServiceFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/WeatherServiceFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/client/MyAPIWeatherClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amastalerczuk/model/client/MyAPIWeatherClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/amastalerczuk/model/WeatherServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/amastalerczuk/model/WeatherServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,11 +68,11 @@
       <recent name="com.amastalerczuk.model" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="com.amastalerczuk.model" />
       <recent name="com.amastalerczuk.model.client" />
+      <recent name="com.amastalerczuk.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.java in javafx_weatherApp">
+  <component name="RunManager" selected="JUnit.WeatherServiceTest">
     <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="11" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -98,17 +97,48 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DateServiceTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MyAPIWeatherClientTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="javafx_weatherApp" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.amastalerczuk.model.*" />
+          <option name="PATTERN" value="com.amastalerczuk.model.client.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.amastalerczuk.model" />
-      <option name="MAIN_CLASS_NAME" value="com.amastalerczuk.model.DateServiceTest" />
-      <option name="METHOD_NAME" value="test" />
+      <option name="PACKAGE_NAME" value="com.amastalerczuk.model.client" />
+      <option name="MAIN_CLASS_NAME" value="com.amastalerczuk.model.client.MyAPIWeatherClientTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyAPIWeatherClientTest.shouldGetCurrentWeatherThrowExceptionBrokenJson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="javafx_weatherApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.amastalerczuk.model.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.amastalerczuk.model.client" />
+      <option name="MAIN_CLASS_NAME" value="com.amastalerczuk.model.client.MyAPIWeatherClientTest" />
+      <option name="METHOD_NAME" value="shouldGetCurrentWeatherThrowExceptionBrokenJson" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyAPIWeatherClientTest.shouldGetFutureWeatherThrowExceptionBrokenJson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="javafx_weatherApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.amastalerczuk.model.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.amastalerczuk.model.client" />
+      <option name="MAIN_CLASS_NAME" value="com.amastalerczuk.model.client.MyAPIWeatherClientTest" />
+      <option name="METHOD_NAME" value="shouldGetFutureWeatherThrowExceptionBrokenJson" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -129,37 +159,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WeatherServiceTest.shouldThrowExceptionFutureWeatherForecast" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="javafx_weatherApp" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.amastalerczuk.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.amastalerczuk.model" />
-      <option name="MAIN_CLASS_NAME" value="com.amastalerczuk.model.WeatherServiceTest" />
-      <option name="METHOD_NAME" value="shouldThrowExceptionFutureWeatherForecast" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="java in javafx_weatherApp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="javafx_weatherApp" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/src/test/java" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.java in javafx_weatherApp" />
-        <item itemvalue="JUnit.DateServiceTest" />
-        <item itemvalue="JUnit.DateServiceTest.test" />
         <item itemvalue="JUnit.WeatherServiceTest" />
-        <item itemvalue="JUnit.WeatherServiceTest.shouldThrowExceptionFutureWeatherForecast" />
+        <item itemvalue="JUnit.DateServiceTest" />
+        <item itemvalue="JUnit.MyAPIWeatherClientTest" />
+        <item itemvalue="JUnit.MyAPIWeatherClientTest.shouldGetCurrentWeatherThrowExceptionBrokenJson" />
+        <item itemvalue="JUnit.MyAPIWeatherClientTest.shouldGetFutureWeatherThrowExceptionBrokenJson" />
       </list>
     </recent_temporary>
   </component>
@@ -190,10 +196,13 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/javafx_weatherApp$DateServiceTest.ic" NAME="DateServiceTest Coverage Results" MODIFIED="1678637803500" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/javafx_weatherApp$DateServiceTest.ic" NAME="DateServiceTest Coverage Results" MODIFIED="1678990480095" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.amastalerczuk.model.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/javafx_weatherApp$WeatherServiceTest.ic" NAME="WeatherServiceTest Coverage Results" MODIFIED="1678636633112" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/javafx_weatherApp$MyAPIWeatherClientTest.ic" NAME="MyAPIWeatherClientTest Coverage Results" MODIFIED="1678990447636" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.amastalerczuk.model.client.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/javafx_weatherApp$WeatherServiceTest.ic" NAME="WeatherServiceTest Coverage Results" MODIFIED="1678990671358" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.amastalerczuk.model.*</FILTER>
     </SUITE>
   </component>

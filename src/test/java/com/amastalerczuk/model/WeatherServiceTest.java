@@ -2,7 +2,11 @@ package com.amastalerczuk.model;
 
 import com.amastalerczuk.model.client.WeatherClient;
 import org.json.simple.parser.ParseException;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
@@ -10,18 +14,21 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.sameInstance;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-
+@ExtendWith(MockitoExtension.class)
 class WeatherServiceTest {
+    @Mock
+    private WeatherClient weatherClient;
+    private WeatherService weatherService;
 
+    @BeforeEach
+    void setUp(){
+        weatherService = new WeatherService(weatherClient);
+    }
     @Test
     void shouldReturnCurrentWeatherForecast() throws ParseException {
         //given
-        WeatherClient weatherClient = mock();
-        WeatherService weatherService = new WeatherService(weatherClient);
-
         String city = "City";
         Weather expectedWeather = MyAPIWeatherClientStub.getCurrentWeather(city);
         when(weatherClient.getCurrentWeather(city))
@@ -38,9 +45,6 @@ class WeatherServiceTest {
     @Test
     void shouldThrowExceptionCurrentWeatherForecast() throws ParseException {
         //given
-        WeatherClient weatherClient = mock();
-        WeatherService weatherService = new WeatherService(weatherClient);
-
         String city = "City";
 
         //when
@@ -53,9 +57,6 @@ class WeatherServiceTest {
     @Test
     void shouldReturnFutureWeatherForecast() throws ParseException {
         //given
-        WeatherClient weatherClient = mock();
-        WeatherService weatherService = new WeatherService(weatherClient);
-
         String city = "City";
         List<Weather> expectedWeather = MyAPIWeatherClientStub.getFutureWeather(city);
         when(weatherClient.getFutureWeather(city))
@@ -72,9 +73,6 @@ class WeatherServiceTest {
     @Test
     void shouldThrowExceptionFutureWeatherForecast() throws ParseException {
         //given
-        WeatherClient weatherClient = mock();
-        WeatherService weatherService = new WeatherService(weatherClient);
-
         String city = "City";
 
         //when
@@ -83,6 +81,4 @@ class WeatherServiceTest {
         // then
         assertThrows(RuntimeException.class, () -> weatherService.getFutureWeather(city));
     }
-
-
 }
